@@ -11,9 +11,6 @@ export default function Home() {
           <span>
             {COURSE_WELCOME_TEXT}
           </span>
-          <p>
-            Guy
-          </p>
         </div>
         <div className="center padding-2">
           <Image
