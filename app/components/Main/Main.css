@@ -1,0 +1,13 @@
+
+#mainpage {
+    background-color: lightblue;
+    color:#1a1919;
+    text-align:center;
+    vertical-align:text-top;
+    font-size:26px;
+    font-family:SundayMono;
+    line-height:auto;
+    border-style:hidden;
+    outline:none;
+    height: 1000px;
+  }
