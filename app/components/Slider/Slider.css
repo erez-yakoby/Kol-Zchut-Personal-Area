@@ -1,0 +1,35 @@
+.slider {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 30px;
+  height: 450px;
+  width: 1000px;
+  background-color: #7fa0e1;
+  border-radius: 30px;
+}
+
+.mainPart {
+  display: flex;
+  align-items: center;
+  direction: rtl;
+  gap: 100px;
+}
+
+.slideContent {
+  width: 450px;
+}
+
+h1 h4 {
+  font-family: "Sunday", sans-serif;
+}
+
+h1 {
+  font-size: 50px;
+  font-weight: 600;
+}
+
+h4 {
+  font-size: 20px;
+  font-weight: 100;
+}

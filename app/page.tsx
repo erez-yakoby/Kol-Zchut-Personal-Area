@@ -9,11 +9,20 @@ import Calendar from "./components/calendar";
 import Paper from "@mui/material/Paper";
 import ProgressBar from "./components/progressbar";
 import Main from "./components/Main/Main";
+import Slider from "./components/Slider/Slider";
+import "./page.css";
 
 export default function DenseAppBar() {
   return (
     <div>
       <TopBar />
+      <div dir="row" className="mainFrame">
+        <h1 id="processbar" style={{ height: "100%" }}>
+          Progress Bar
+        </h1>
+        <Slider />
+      </div>
+
       <div>
         <Main></Main>
       </div>
