@@ -6,30 +6,9 @@ import Box from "@mui/material/Box";
 import Stepper from "@mui/material/Stepper";
 import Step from "@mui/material/Step";
 import StepLabel from "@mui/material/StepLabel";
-import StepContent from "@mui/material/StepContent";
 import Button from "@mui/material/Button";
-import Paper from "@mui/material/Paper";
-import Typography from "@mui/material/Typography";
 
-const slides = [
-  {
-    title: "תכל'ס נעזור לך לקבל כל מה שמגיע לך",
-    description:
-      "זהו תחילת התהליך של מימוש הזכויות שלך בנושא סיום עבודה. התהליך מורכב ממספר שלבים ומשימות שנועדו לדאוג ללוות אותך שלב אחרי שלב ושבסופם  תקבל את כל מה שמגיע לך",
-  },
-  {
-    title: "מה קרה לך בעצם?",
-    description:
-      "במצב של סיום עבודה יש הבדל בזכויות המגיעות למי שפוטר מעבודתו ולמי שהתפטר. בשלב זה, נרצה לקבל את הפרטים הראשוניים בנוגע לשינוי הסטטוס התעסוקתי שלך.",
-  },
-  {
-    title: "מתי זה קרה?",
-    description:
-      "על מנת שנוכל להתאים את ההמלצות והשלבים המתאימים לשלב שבו אתה נמצא, נרצה להבין באיזה תאריך התרחש השינוי התעסוקתי. ",
-  },
-];
-
-const Slider = () => {
+const Slider = ({ tabContent }) => {
   const [activeStep, setActiveStep] = useState(0);
 
   const handleNext = () => {
@@ -39,6 +18,7 @@ const Slider = () => {
   const handleBack = () => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
   };
+  const slides = tabContent.slides;
 
   return (
     <div>
@@ -47,15 +27,13 @@ const Slider = () => {
         <div className="mainPart">
           <Box>
             <Stepper activeStep={activeStep} orientation="vertical">
-              <Step>
-                <StepLabel />
-              </Step>
-              <Step>
-                <StepLabel />
-              </Step>
-              <Step>
-                <StepLabel />
-              </Step>
+              {slides.map((slide, index) => {
+                return (
+                  <Step key={index}>
+                    <StepLabel />
+                  </Step>
+                );
+              })}
             </Stepper>
           </Box>
           <div className="slideContent">
@@ -63,9 +41,10 @@ const Slider = () => {
             <h4>{slides[activeStep]?.description}</h4>
           </div>
         </div>
+        {renderTask(slides[activeStep])}
         <Box sx={{ mb: 2, display: "flex", justifyContent: "space-between" }}>
           <Button variant="text" onClick={handleNext} sx={{ mt: 1, mr: 1 }}>
-            {activeStep === 3 - 1 ? "סיים" : "<-המשך"}
+            {activeStep === slides.length - 1 ? "סיים" : "<-המשך"}
           </Button>
           <Button
             disabled={activeStep === 0}
@@ -79,6 +58,21 @@ const Slider = () => {
       </Box>
     </div>
   );
+};
+
+const renderTask = (slide) => {
+  switch (slide.taskType) {
+    case "none":
+      break;
+    case "question":
+      return <Box>question</Box>;
+    case "multiSelection":
+      return <Box>multiSelection</Box>;
+    case "chooseDate":
+      return <Box>chooseDate</Box>;
+    default:
+      break;
+  }
 };
 
 export default Slider;
