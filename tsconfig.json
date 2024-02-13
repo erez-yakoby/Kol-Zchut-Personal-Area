@@ -22,6 +22,14 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/calendar.js"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "app/calendar.js",
+    "app/components/TabsBar/TabsBar.jsx",
+    "app/components/Tasks/Question.jsx"
+  ],
   "exclude": ["node_modules"]
 }

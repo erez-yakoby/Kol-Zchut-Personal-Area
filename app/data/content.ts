@@ -19,7 +19,7 @@ type slide = {
   id: Number;
   title: String;
   description: String;
-  task: question | multiSelection | null;
+  task: question | multiSelection | dateChoice | null;
   taskType: String;
   progressPerc: Number;
 };
@@ -41,6 +41,11 @@ type multiSelectionOption = {
   id: Number;
   text: String;
   isMarked: Boolean;
+};
+
+type dateChoice = {
+  id: Number;
+  text: String;
 };
 
 export const ProcessesContent: Array<process> = [
@@ -82,8 +87,8 @@ export const ProcessesContent: Array<process> = [
             title: "מתי זה קרה?",
             description:
               "על מנת שנוכל להתאים את ההמלצות והשלבים המתאימים לשלב שבו אתה נמצא, נרצה להבין באיזה תאריך התרחש השינוי התעסוקתי. ",
-            task: null,
-            taskType: "none",
+            task: { id: 1, text: "" },
+            taskType: "chooseDate",
             progressPerc: 0,
           },
         ],
