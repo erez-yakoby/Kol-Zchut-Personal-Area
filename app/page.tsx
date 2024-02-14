@@ -2,11 +2,8 @@
 import TopBar from "./components/TopBar/TopBar";
 import Slider from "./components/Slider/Slider";
 import TabsBar from "./components/TabsBar/TabsBar";
-import ButtonWrapper from "./components/Button/ButtonWrapper";
 import { ProcessesContent } from "./data/content";
 import "./page.css";
-import Questionnaire from "./components/Button/Button";
-
 import { useState } from "react";
 
 export default function MainPage() {
@@ -55,7 +52,6 @@ export default function MainPage() {
         processTabs={ProcessesContent[0].tabs}
         selectTabHandler={selectTabHandler}
       />
-      {/* <ButtonWrapper /> */}
     </div>
   );
 }

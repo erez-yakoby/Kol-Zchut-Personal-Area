@@ -2,13 +2,13 @@
 import React, { useState } from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
-import { useButtonContext } from "./ButtonContext";
+// import { useButtonContext } from "./ButtonContext";
 
 function Questionnaire() {
   const initialQuestions = [
-    { id: 1, text1: 'התפטרתי', text2: 'פוטרתי' },
-    { id: 2, text1: 'sdf', text2: 'asdf' },
-    { id: 3, text1: '', text2: '' },
+    { id: 1, text1: "התפטרתי", text2: "פוטרתי" },
+    { id: 2, text1: "sdf", text2: "asdf" },
+    { id: 3, text1: "", text2: "" },
   ];
 
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -19,7 +19,8 @@ function Questionnaire() {
     // Update userAnswers with the selected answer for the current question
     setUserAnswers({
       ...userAnswers,
-      [initialQuestions[currentQuestionIndex].id]: answer === 'none' ? null : answer === 'true',
+      [initialQuestions[currentQuestionIndex].id]:
+        answer === "none" ? null : answer === "true",
     });
 
     // Update lastClickedButton to the clicked button's id
@@ -38,9 +39,9 @@ function Questionnaire() {
         <Box className="buttonbox">
           <Button
             type="button"
-            id = "buttons"
+            id="buttons"
             variant="contained"
-            onClick={() => handleButtonClick('true')}
+            onClick={() => handleButtonClick("true")}
             // style={{
             //   backgroundColor:
             //     lastClickedButton === initialQuestions[currentQuestionIndex].id
@@ -51,11 +52,11 @@ function Questionnaire() {
             {initialQuestions[currentQuestionIndex]?.text1}
           </Button>
           <Button
-            id= "buttons"
+            id="buttons"
             type="button"
             // style={{backgroundColor: 'black'}}
             variant="contained"
-            onClick={() => handleButtonClick('false')}
+            onClick={() => handleButtonClick("false")}
             // style={{
             //   backgroundColor:
             //     lastClickedButton === initialQuestions[currentQuestionIndex].id
