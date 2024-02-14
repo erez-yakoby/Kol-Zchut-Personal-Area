@@ -5,6 +5,8 @@ import TabsBar from "./components/TabsBar/TabsBar";
 import ButtonWrapper from "./components/Button/ButtonWrapper";
 import { ProcessesContent } from "./data/content";
 import "./page.css";
+import Questionnaire from "./components/Button/Button";
+
 import { useState } from "react";
 
 export default function MainPage() {
