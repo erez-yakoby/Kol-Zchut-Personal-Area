@@ -14,6 +14,8 @@ import DateChooser from "../Tasks/DateChooser";
 import Question from "../Tasks/Question";
 import CheckList from "../Tasks/CheckList";
 import { TaskType } from "@/app/data/content";
+import Questionnaire from "../Button/Button";
+
 
 const Slider = ({ tabContent, closeTabHandler, nextTabHandler }) => {
   const [activeStep, setActiveStep] = useState(0);
