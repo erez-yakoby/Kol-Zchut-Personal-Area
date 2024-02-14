@@ -2,7 +2,7 @@
   position: absolute;
   top: 20px;
   right: 20px;
-  bottom: 0;
+  bottom: 10px;
   left: 20px;
 }
 
@@ -45,7 +45,7 @@
 .slider {
   padding: 30px;
   width: 1000px;
-  height: 500px;
+  height: 450px;
   align-self: center;
   background-color: #7fa0e1;
   border-radius: 30px;
@@ -54,6 +54,11 @@
 .slideContent {
   width: 450px;
   margin-right: 80px;
+}
+
+.tabsBar {
+  justify-content: center;
+  gap: 50px;
 }
 
 .height70 {
@@ -71,6 +76,7 @@ h1 h4 {
 h1 {
   font-size: 50px;
   font-weight: 600;
+  margin: 0;
 }
 
 h4 {
