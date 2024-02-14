@@ -9,7 +9,7 @@ import { useState } from "react";
 
 export default function MainPage() {
   const [isTabOpen, setIsTabOpen] = useState(true);
-  const [openedTabNum, setOpenedTabNum] = useState(0);
+  const [openedTabNum, setOpenedTabNum] = useState(1);
 
   const closeTabHandler = () => {
     setIsTabOpen(false);

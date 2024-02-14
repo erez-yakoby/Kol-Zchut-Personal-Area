@@ -12,6 +12,8 @@ import WestIcon from "@mui/icons-material/West";
 import EastIcon from "@mui/icons-material/East";
 import DateChooser from "../Tasks/DateChooser";
 import Question from "../Tasks/Question";
+import CheckList from "../Tasks/CheckList";
+import { TaskType } from "@/app/data/content";
 
 const Slider = ({ tabContent, closeTabHandler }) => {
   const [activeStep, setActiveStep] = useState(0);
@@ -50,7 +52,7 @@ const Slider = ({ tabContent, closeTabHandler }) => {
             })}
           </Stepper>
         </div>
-        <div className="slideContent flexCol">
+        <div className="slideContent flexCol ">
           <h1>{slides[activeStep]?.title}</h1>
           <h4>{slides[activeStep]?.description}</h4>
           {renderTask(slides[activeStep])}
@@ -76,13 +78,13 @@ const Slider = ({ tabContent, closeTabHandler }) => {
 
 const renderTask = (slide) => {
   switch (slide.taskType) {
-    case "none":
+    case TaskType.NoTask:
       break;
-    case "question":
+    case TaskType.Question:
       return <Question question={slide.task} />;
-    case "multiSelection":
-      return <Box>multiSelection</Box>;
-    case "chooseDate":
+    case TaskType.CheckList:
+      return <CheckList checkList={slide.task} />;
+    case TaskType.DateChoice:
       return <DateChooser />;
     default:
       break;

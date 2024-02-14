@@ -19,10 +19,17 @@ type slide = {
   id: Number;
   title: String;
   description: String;
-  task: question | multiSelection | dateChoice | null;
-  taskType: String;
+  task: question | checkList | dateChoice | null;
+  taskType: TaskType;
   progressPerc: Number;
 };
+
+export enum TaskType {
+  Question,
+  CheckList,
+  DateChoice,
+  NoTask,
+}
 
 type question = {
   id: Number;
@@ -31,13 +38,13 @@ type question = {
   possibleAnswers: Array<String>;
 };
 
-type multiSelection = {
+type checkList = {
   id: Number;
   text: String;
-  options: Array<multiSelectionOption>;
+  options: Array<checkListOption>;
 };
 
-type multiSelectionOption = {
+type checkListOption = {
   id: Number;
   text: String;
   isMarked: Boolean;
@@ -65,7 +72,7 @@ export const ProcessesContent: Array<process> = [
             description:
               "זהו תחילת התהליך של מימוש הזכויות שלך בנושא סיום עבודה. התהליך מורכב ממספר שלבים ומשימות שנועדו לדאוג ללוות אותך שלב אחרי שלב ושבסופם  תקבל את כל מה שמגיע לך",
             task: null,
-            taskType: "none",
+            taskType: TaskType.NoTask,
             progressPerc: 0,
           },
           {
@@ -79,7 +86,7 @@ export const ProcessesContent: Array<process> = [
               numOfAnswers: 2,
               possibleAnswers: ["פיטרו אותי", "אני התפטרתי"],
             },
-            taskType: "question",
+            taskType: TaskType.Question,
             progressPerc: 0,
           },
           {
@@ -88,7 +95,7 @@ export const ProcessesContent: Array<process> = [
             description:
               "על מנת שנוכל להתאים את ההמלצות והשלבים המתאימים לשלב שבו אתה נמצא, נרצה להבין באיזה תאריך התרחש השינוי התעסוקתי. ",
             task: { id: 1, text: "" },
-            taskType: "chooseDate",
+            taskType: TaskType.DateChoice,
             progressPerc: 0,
           },
         ],
@@ -111,7 +118,7 @@ export const ProcessesContent: Array<process> = [
                 { id: 3, text: "טופס 161", isMarked: false },
               ],
             },
-            taskType: "multiSelection",
+            taskType: TaskType.CheckList,
             progressPerc: 0,
           },
         ],
