@@ -1,15 +1,22 @@
+"use client";
 import React from "react";
+import { Button } from "@mui/material";
 
-const TabsBar = ({ processTabs }) => {
+const TabsBar = ({ processTabs, selectTabHandler }) => {
   return (
-    <div
-      style={{
-        height: "120px",
-        backgroundColor: "Highlight",
-        marginTop: "20px",
-      }}
-    >
-      <h1> tabs bar</h1>
+    <div className="flexRow rtl tabsBar">
+      {processTabs.map((tab, index) => {
+        return (
+          <Button
+            key={index}
+            variant="contained"
+            onClick={selectTabHandler}
+            id={index}
+          >
+            {tab.name}
+          </Button>
+        );
+      })}
     </div>
   );
 };

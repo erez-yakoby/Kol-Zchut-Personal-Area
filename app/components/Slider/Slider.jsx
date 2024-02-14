@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Stepper from "@mui/material/Stepper";
@@ -15,13 +15,18 @@ import Question from "../Tasks/Question";
 import CheckList from "../Tasks/CheckList";
 import { TaskType } from "@/app/data/content";
 
-const Slider = ({ tabContent, closeTabHandler }) => {
+const Slider = ({ tabContent, closeTabHandler, nextTabHandler }) => {
   const [activeStep, setActiveStep] = useState(0);
+
+  useEffect(() => {
+    setActiveStep(0);
+  }, [tabContent]);
+
   const slides = tabContent.slides;
 
   const handleNext = () => {
     if (activeStep + 1 >= slides.length) {
-      // closeHandler
+      nextTabHandler();
     } else {
       setActiveStep((prevActiveStep) => prevActiveStep + 1);
     }
@@ -77,6 +82,7 @@ const Slider = ({ tabContent, closeTabHandler }) => {
 };
 
 const renderTask = (slide) => {
+  if (!slide) return;
   switch (slide.taskType) {
     case TaskType.NoTask:
       break;

@@ -123,6 +123,51 @@ export const ProcessesContent: Array<process> = [
           },
         ],
       },
+      {
+        id: 3,
+        progressPerc: 0,
+        name: "בדיקת זכאות",
+        slides: [
+          {
+            id: 1,
+            title: "רשימת מסמכים שאתה צריך לקבל מהבוס",
+            description: "",
+            task: null,
+            taskType: TaskType.NoTask,
+            progressPerc: 0,
+          },
+        ],
+      },
+      {
+        id: 4,
+        progressPerc: 0,
+        name: "הרשמה ללשכה",
+        slides: [
+          {
+            id: 1,
+            title: "רשימת מסמכים שאתה צריך לקבל מהבוס",
+            description: "",
+            task: null,
+            taskType: TaskType.NoTask,
+            progressPerc: 0,
+          },
+        ],
+      },
+      {
+        id: 5,
+        progressPerc: 0,
+        name: "בדיקת זכאות",
+        slides: [
+          {
+            id: 1,
+            title: "רשימת מסמכים שאתה צריך לקבל מהבוס",
+            description: "",
+            task: null,
+            taskType: TaskType.NoTask,
+            progressPerc: 0,
+          },
+        ],
+      },
     ],
   },
 ];
