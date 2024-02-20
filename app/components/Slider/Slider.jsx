@@ -12,6 +12,7 @@ import EastIcon from "@mui/icons-material/East";
 import DateChooser from "../Tasks/DateChooser";
 import Question from "../Tasks/Question";
 import CheckList from "../Tasks/CheckList";
+import SingleSelection from "../Tasks/SingleSelection";
 import { TaskType } from "@/app/data/content";
 import Questionnaire from "../Button/Button";
 import Image from "next/image";
@@ -113,7 +114,7 @@ const Slider = ({ tabContent, nextTabHandler }) => {
 const renderTasks = (slide) => {
   if (!slide || !slide.tasks) return;
   return (
-    <div>
+    <div className="tasksSection">
       {slide.tasks.map((task, index) => {
         switch (task.taskType) {
           case TaskType.NoTask:
@@ -124,6 +125,8 @@ const renderTasks = (slide) => {
             return <CheckList checkList={task.taskObj} />;
           case TaskType.DateChoice:
             return <DateChooser task={task} />;
+          case TaskType.SingleSelection:
+            return <SingleSelection selectionObj={task.taskObj} />;
           default:
             break;
         }

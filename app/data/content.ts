@@ -121,7 +121,7 @@ export const ProcessesContent: Array<process> = [
                 id: 3,
                 taskType: TaskType.SingleSelection,
                 taskObj: {
-                  text: "",
+                  text: "סוג שכר",
                   options: [
                     {
                       id: 1,

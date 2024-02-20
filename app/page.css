@@ -164,6 +164,12 @@ h4 {
   gap: 48px;
 }
 
+.tasksSection {
+  display: flex;
+  flex-direction: column;
+  gap: 27px;
+}
+
 .creditsBar {
   display: flex;
   flex-direction: row;
