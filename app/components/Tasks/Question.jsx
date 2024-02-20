@@ -6,12 +6,16 @@ const Question = ({ question }) => {
   const answers = question.possibleAnswers;
   console.log(answers);
   return (
-    <div className="flexRow gap-60">
+    <div className="flexRow gap-60 rtl">
       {answers.map((answer, index) => {
         return (
-          <Button key={index} variant="contained">
-            {answer}
-          </Button>
+          <button key={index} className="questionBtn">
+            {" "}
+            {answer}{" "}
+          </button>
+          // <Button key={index} variant="contained">
+          //   {answer}
+          // </Button>
         );
       })}
     </div>

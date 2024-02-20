@@ -1,4 +1,3 @@
-"use client";
 import React, { useState, useEffect } from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
@@ -15,9 +14,10 @@ import Question from "../Tasks/Question";
 import CheckList from "../Tasks/CheckList";
 import { TaskType } from "@/app/data/content";
 import Questionnaire from "../Button/Button";
+import Image from "next/image";
+import MyStepper from "./MyStepper";
 
-
-const Slider = ({ tabContent, closeTabHandler, nextTabHandler }) => {
+const Slider = ({ tabContent, nextTabHandler }) => {
   const [activeStep, setActiveStep] = useState(0);
 
   useEffect(() => {
@@ -39,17 +39,20 @@ const Slider = ({ tabContent, closeTabHandler, nextTabHandler }) => {
   };
 
   return (
-    <Box className="slider flexCol spaceBet">
-      <div className="flexRow spaceBet rtl">
-        <IconButton size="small" onClick={closeTabHandler}>
-          <CloseRoundedIcon />
-        </IconButton>
+    <div className="slider flexCol spaceBet">
+      <div className="flexRow rtl sliderTop">
+        <Image
+          src={tabContent.iconPath}
+          alt={tabContent.name}
+          width={18}
+          height={18}
+        />
         <Typography> {tabContent.name} </Typography>
       </div>
 
       <div className="flexRow rtl height70  ">
         <div className="selfCenter">
-          <Stepper activeStep={activeStep} orientation="vertical">
+          {/* <Stepper activeStep={activeStep} orientation="vertical">
             {slides.map((slide, index) => {
               return (
                 <Step key={index}>
@@ -57,19 +60,17 @@ const Slider = ({ tabContent, closeTabHandler, nextTabHandler }) => {
                 </Step>
               );
             })}
-          </Stepper>
+          </Stepper> */}
         </div>
         <div className="slideContent flexCol ">
+          <MyStepper slides={slides} activeStep={activeStep} />
           <h1>{slides[activeStep]?.title}</h1>
           <h4>{slides[activeStep]?.description}</h4>
-          {renderTask(slides[activeStep])}
+          {renderTasks(slides[activeStep])}
         </div>
       </div>
 
-      <div className="flexRow spaceBet">
-        <Button variant="text" startIcon={<WestIcon />} onClick={handleNext}>
-          {activeStep === slides.length - 1 ? "סיים" : "המשך"}
-        </Button>
+      <div className="flexRow spaceBet ">
         <Button
           variant="text"
           endIcon={<EastIcon />}
@@ -78,25 +79,57 @@ const Slider = ({ tabContent, closeTabHandler, nextTabHandler }) => {
         >
           חזור
         </Button>
+        <Button variant="text" endIcon={<WestIcon />} onClick={handleNext}>
+          {activeStep === slides.length - 1 ? "סיים" : "המשך"}
+        </Button>
       </div>
-    </Box>
+      {/* <div className="creditsBar  ">
+        <h4>אתר ״זכותי״ מופעל ע״י כל זכות בע״מ</h4>
+        <h4> האתר פונה לנשים וגברים כאחד</h4>
+        <h4>בסיוע משרד המשפטים ומערך הדיגיטל הלאומי </h4>
+        <Image
+          src="/logos/kolZchoot.svg"
+          alt="/logos/kolZchoot"
+          width={58}
+          height={19}
+        />
+        <Image
+          src="/logos/digital.svg"
+          alt="/logos/digital"
+          width={63}
+          height={22}
+        />
+        <Image
+          src="/logos/ministryOfJustice.svg"
+          alt="/logos/ministryOfJustice"
+          width={71}
+          height={17}
+        />
+      </div> */}
+    </div>
   );
 };
 
-const renderTask = (slide) => {
-  if (!slide) return;
-  switch (slide.taskType) {
-    case TaskType.NoTask:
-      break;
-    case TaskType.Question:
-      return <Question question={slide.task} />;
-    case TaskType.CheckList:
-      return <CheckList checkList={slide.task} />;
-    case TaskType.DateChoice:
-      return <DateChooser />;
-    default:
-      break;
-  }
+const renderTasks = (slide) => {
+  if (!slide || !slide.tasks) return;
+  return (
+    <div>
+      {slide.tasks.map((task, index) => {
+        switch (task.taskType) {
+          case TaskType.NoTask:
+            break;
+          case TaskType.Question:
+            return <Question question={task.taskObj} />;
+          case TaskType.CheckList:
+            return <CheckList checkList={task.taskObj} />;
+          case TaskType.DateChoice:
+            return <DateChooser task={task} />;
+          default:
+            break;
+        }
+      })}
+    </div>
+  );
 };
 
 export default Slider;

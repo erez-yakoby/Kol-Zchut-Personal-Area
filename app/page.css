@@ -1,11 +1,44 @@
-.screenFiller {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  bottom: 10px;
-  left: 20px;
+/* ################ Fonts ################ */
+
+h1 h4 {
+  font-family: "Sunday", sans-serif;
 }
 
+h1 {
+  font-size: 70px;
+  font-weight: 600;
+  margin: 0;
+}
+
+h4 {
+  font-size: 20px;
+  font-weight: 100;
+  padding: 0;
+  margin: 0;
+}
+/* ################ Buttons ################ */
+
+.questionBtn {
+  border: 0px;
+  border-radius: 30px;
+  background: #b486f9;
+  padding: 15px 25px;
+}
+
+.questionBtn:hover {
+  background: #a26af4;
+}
+
+/* ################ Main Page ################ */
+.fullScreen {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+/* ################ Common uses ################ */
 .flexRow {
   display: flex;
   flex-direction: row;
@@ -28,37 +61,12 @@
   align-self: center;
 }
 
-/* check how to make with variable */
 .m-6 {
   margin-left: 6px;
 }
 
 .gap-60 {
   gap: 60px;
-}
-
-.topBar {
-  gap: 10px;
-  margin-bottom: 30px;
-}
-
-.slider {
-  padding: 30px;
-  width: 1000px;
-  height: 450px;
-  align-self: center;
-  background-color: #7fa0e1;
-  border-radius: 30px;
-}
-
-.slideContent {
-  width: 450px;
-  margin-right: 80px;
-}
-
-.tabsBar {
-  justify-content: center;
-  gap: 50px;
 }
 
 .height70 {
@@ -69,17 +77,108 @@
   background-color: green;
 }
 
-h1 h4 {
-  font-family: "Sunday", sans-serif;
+.parent {
+  display: flex;
 }
 
-h1 {
-  font-size: 50px;
-  font-weight: 600;
-  margin: 0;
+/* ################ Accordion ################ */
+
+.accordion {
+  direction: rtl;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  background-color: #f6efe5;
 }
 
-h4 {
-  font-size: 20px;
-  font-weight: 100;
+.rightBar {
+  background-color: #a26af4;
+  border-left: 2px solid black;
+  padding-top: 20px;
+  width: 56px;
+  display: flex;
+  justify-content: center;
+}
+.selectedDiv {
+  flex-grow: 8;
+  border-left: 2px solid black;
+  transition: flex 0.3s linear;
+}
+
+.regDiv {
+  flex-shrink: 1;
+  width: 56px;
+  border-left: 2px solid black;
+  transition: flex 0.3s linear;
+  padding-top: 30px;
+}
+
+.regDiv:hover {
+  background-color: #a26af4;
+  cursor: pointer;
+  transition: 0.5s ease-in-out;
+}
+
+.accordionBanner {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.verticalWriting {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+}
+
+.tabIcon {
+  width: 18px;
+  height: 18px;
+}
+
+/* ################ Slider ################ */
+
+.slider {
+  height: 100%;
+  box-sizing: border-box;
+  padding-top: 30px;
+  padding-right: 30px;
+  padding-left: 30px;
+  padding-bottom: 10px;
+}
+
+.sliderTop {
+  align-items: center;
+  gap: 25px;
+}
+
+.slidesStepper {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+}
+
+.slideContent {
+  max-width: 650px;
+  margin-right: 225px;
+  gap: 48px;
+}
+
+.creditsBar {
+  display: flex;
+  flex-direction: row;
+  gap: 48px;
+  justify-content: center;
+}
+
+/* ################ Old Components ################ */
+
+.topBar {
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.tabsBar {
+  justify-content: center;
+  gap: 50px;
 }
