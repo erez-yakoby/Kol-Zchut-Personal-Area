@@ -1,13 +1,33 @@
 /* ################ Fonts ################ */
-
-h1 h4 {
-  font-family: "Sunday", sans-serif;
+@font-face {
+  font-family: 'Sunday_Normal';
+  src: url(fonts/Sunday-Normal.woff);
 }
+
+@font-face {
+  font-family: 'Sunday_Medium';
+  src: url(fonts/Sunday-Medium.woff);
+}
+
+@font-face {
+  font-family: 'Assistant_Regualr';
+  src: url(fonts/Assistant-Regular.woff);
+}
+
+@font-face {
+  font-family: 'Assistant_Bold';
+  src: url(fonts/Assistant-Bold.woff);
+}
+
+/* h1 h4 {
+  font-family: "Sunday", sans-serif;
+} */
 
 h1 {
   font-size: 70px;
   font-weight: 600;
   margin: 0;
+  font-family: 'Sunday_Normal';
 }
 
 h4 {
@@ -15,14 +35,24 @@ h4 {
   font-weight: 100;
   padding: 0;
   margin: 0;
+  font-family: 'Assistant_Regualr';
 }
 /* ################ Buttons ################ */
 
 .questionBtn {
   border: 0px;
   border-radius: 30px;
-  background: #b486f9;
+  background-color: #f6efe5;
+  border-radius: 30px;
+  border: 1px solid #000;
   padding: 15px 25px;
+  &:active{
+    position:relative;
+    top:1px;
+  }
+}
+.active{
+  background: #a26af4;
 }
 
 .questionBtn:hover {
@@ -186,6 +216,7 @@ h4 {
   transition: 1000ms;
   cursor: pointer;
   gap: 5px;
+  background-color: #f6efe5;
 }
 
 .nextSlideButton:hover {
