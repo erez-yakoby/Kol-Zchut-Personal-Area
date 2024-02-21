@@ -40,7 +40,7 @@ const Slider = ({ tabContent, nextTabHandler }) => {
   };
 
   return (
-    <div className="slider flexCol spaceBet">
+    <div className="slider flexCol ">
       <div className="flexRow rtl sliderTop">
         <Image
           src={tabContent.iconPath}
@@ -52,8 +52,8 @@ const Slider = ({ tabContent, nextTabHandler }) => {
       </div>
 
       <div className="flexRow rtl height70  ">
-        <div className="selfCenter">
-          {/* <Stepper activeStep={activeStep} orientation="vertical">
+        {/* <div className="selfCenter">
+          <Stepper activeStep={activeStep} orientation="vertical">
             {slides.map((slide, index) => {
               return (
                 <Step key={index}>
@@ -61,17 +61,22 @@ const Slider = ({ tabContent, nextTabHandler }) => {
                 </Step>
               );
             })}
-          </Stepper> */}
-        </div>
+          </Stepper>
+        </div> */}
         <div className="slideContent flexCol ">
           <MyStepper slides={slides} activeStep={activeStep} />
           <h1>{slides[activeStep]?.title}</h1>
           <h4>{slides[activeStep]?.description}</h4>
           {renderTasks(slides[activeStep])}
+          <button className="nextSlideButton" onClick={handleNext}>
+            {" "}
+            <WestIcon />
+            <h4>{activeStep === slides.length - 1 ? "סיים" : "הבא"}</h4>
+          </button>
         </div>
       </div>
 
-      <div className="flexRow spaceBet ">
+      {/* <div className="flexRow spaceBet ">
         <Button
           variant="text"
           endIcon={<EastIcon />}
@@ -83,7 +88,7 @@ const Slider = ({ tabContent, nextTabHandler }) => {
         <Button variant="text" endIcon={<WestIcon />} onClick={handleNext}>
           {activeStep === slides.length - 1 ? "סיים" : "המשך"}
         </Button>
-      </div>
+      </div> */}
       {/* <div className="creditsBar  ">
         <h4>אתר ״זכותי״ מופעל ע״י כל זכות בע״מ</h4>
         <h4> האתר פונה לנשים וגברים כאחד</h4>
