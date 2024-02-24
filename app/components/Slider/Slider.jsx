@@ -48,7 +48,7 @@ const Slider = ({ tabContent, nextTabHandler }) => {
           width={18}
           height={18}
         />
-        <Typography> {tabContent.name} </Typography>
+        <Typography className="tabname"> {tabContent.name} </Typography>
       </div>
 
       <div className="flexRow rtl height70  ">

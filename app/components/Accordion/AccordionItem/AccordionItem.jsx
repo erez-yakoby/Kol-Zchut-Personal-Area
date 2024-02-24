@@ -10,7 +10,7 @@ const AccordionItem = ({ tab, isOpen, onClick, handleNextTab }) => {
       ) : (
         <div className="accordionBanner">
           <Image src={tab.iconPath} alt={tab.name} width={18} height={18} />
-          <h4 className="verticalWriting">{tab.name}</h4>
+          <h5 className="verticalWriting">{tab.name}</h5>
         </div>
       )}
     </div>

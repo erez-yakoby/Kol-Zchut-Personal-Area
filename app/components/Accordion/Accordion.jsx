@@ -17,9 +17,9 @@ const Accordion = ({ tabs }) => {
   return (
     <div className="accordion">
       <div className="rightBar">
-        <h4 className="text verticalWriting">
+        <h5 className="text verticalWriting">
           <strong className="boldText">זכותך</strong> זכותך לדעת זכותך לממש
-        </h4>
+        </h5>
       </div>
       {tabs.map((tab, index) => {
         return (
