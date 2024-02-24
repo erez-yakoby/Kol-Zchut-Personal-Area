@@ -31,28 +31,34 @@ h1 {
 }
 
 h4 {
-  font-size: 20px;
+  font-size: 25px;
   font-weight: 100;
   padding: 0;
   margin: 0;
   font-family: 'Assistant_Regualr';
+  font-weight: 400;
+}
+h5 {
+  text-align: right;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 129.438%;
+  font-family: "Assistant_Regualr";
 }
 /* ################ Buttons ################ */
 
 .questionBtn {
-  border: 0px;
-  border-radius: 30px;
   background-color: #f6efe5;
   border-radius: 30px;
   border: 1px solid #000;
   padding: 15px 25px;
-  &:active{
-    position:relative;
-    top:1px;
-  }
 }
 .active{
   background: #A26AF4;
+  border: 2px solid #000;
+  border-radius: 30px;
+
 }
 
 .questionBtn:hover {
@@ -170,6 +176,7 @@ h4 {
   height: 18px;
 }
 
+
 /* ################ Slider ################ */
 
 .slider {
@@ -230,20 +237,26 @@ h4 {
   gap: 48px;
   justify-content: center;
 }
+
+.tabname{
+  font-weight: 700;
+}
 /* ################ Single Selection ################ */
-.css-u4tvz2-MuiFormLabel-root {
+.css-u4tvz2-MuiFormLabel-root {      /*This is the title of the single selection*/
   color: black;
-  font-family: "Assistant_Regualr";
+  font-family: "Sunday_Normal";
+  font-size: 30px;
+
 }
 
-.css-u4tvz2-MuiFormLabel-root.Mui-focused {
+.css-u4tvz2-MuiFormLabel-root.Mui-focused {  /*To keep the color black after clicking*/
   color: black;
 }
 
 .css-ahj2mt-MuiTypography-root {
   font-family: "Assistant_Regualr";
-
 }
+
 .singleselection .MuiRadio-root{
   font-family: "Assistant_Regualr";
 }

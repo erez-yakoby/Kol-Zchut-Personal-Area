@@ -21,7 +21,7 @@ const Question = ({ question }) => {
           onClick={() => handleButtonClick(index)}
         >
             {" "}
-            {answer}{" "}
+            <h4>{answer}</h4>{" "}
           </button>
           // <Button key={index} variant="contained">
           //   {answer}
