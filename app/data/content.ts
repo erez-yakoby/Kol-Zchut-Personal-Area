@@ -295,6 +295,7 @@ export const ProcessesContent: Array<process> = [
                   possibleAnswers: ["כן", "לא"],
                 },
               },
+              
             ],
             progressPerc: 0,
           },

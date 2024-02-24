@@ -52,7 +52,7 @@ h4 {
   }
 }
 .active{
-  background: #a26af4;
+  background: #A26AF4;
 }
 
 .questionBtn:hover {
@@ -230,6 +230,24 @@ h4 {
   gap: 48px;
   justify-content: center;
 }
+/* ################ Single Selection ################ */
+.css-u4tvz2-MuiFormLabel-root {
+  color: black;
+  font-family: "Assistant_Regualr";
+}
+
+.css-u4tvz2-MuiFormLabel-root.Mui-focused {
+  color: black;
+}
+
+.css-ahj2mt-MuiTypography-root {
+  font-family: "Assistant_Regualr";
+
+}
+.singleselection .MuiRadio-root{
+  font-family: "Assistant_Regualr";
+}
+
 
 /* ################ Old Components ################ */
 
