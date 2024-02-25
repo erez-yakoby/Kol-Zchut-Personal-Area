@@ -13,6 +13,7 @@ import DateChooser from "../Tasks/DateChooser";
 import Question from "../Tasks/Question";
 import CheckList from "../Tasks/CheckList";
 import SingleSelection from "../Tasks/SingleSelection";
+import CheckAccordion from "../Tasks/CheckAccordion";
 import { TaskType } from "@/app/data/content";
 import Questionnaire from "../Button/Button";
 import Image from "next/image";
@@ -48,27 +49,22 @@ const Slider = ({ tabContent, nextTabHandler }) => {
           width={18}
           height={18}
         />
-        <Typography className="tabname"> {tabContent.name} </Typography>
+        <h4>
+          <strong>{tabContent.name}</strong>
+        </h4>
       </div>
 
-      <div className="flexRow rtl height70  ">
-        {/* <div className="selfCenter">
-          <Stepper activeStep={activeStep} orientation="vertical">
-            {slides.map((slide, index) => {
-              return (
-                <Step key={index}>
-                  <StepLabel />
-                </Step>
-              );
-            })}
-          </Stepper>
-        </div> */}
+      <div className="flexRow rtl  ">
         <div className="slideContent flexCol ">
-          <MyStepper slides={slides} activeStep={activeStep} />
+          <MyStepper
+            slides={slides}
+            activeStep={activeStep}
+            handleBack={handleBack}
+          />
           <h1>{slides[activeStep]?.title}</h1>
           <h4>{slides[activeStep]?.description}</h4>
           {renderTasks(slides[activeStep])}
-          <button className="nextSlideButton" onClick={handleNext}>
+          <button className="nextSlideButton " onClick={handleNext}>
             {" "}
             <WestIcon />
             <h4>{activeStep === slides.length - 1 ? "סיים" : "הבא"}</h4>
@@ -118,6 +114,7 @@ const Slider = ({ tabContent, nextTabHandler }) => {
 
 const renderTasks = (slide) => {
   if (!slide || !slide.tasks) return;
+
   return (
     <div className="tasksSection">
       {slide.tasks.map((task, index) => {
@@ -127,7 +124,7 @@ const renderTasks = (slide) => {
           case TaskType.Question:
             return <Question question={task.taskObj} />;
           case TaskType.CheckList:
-            return <CheckList checkList={task.taskObj} />;
+            return <CheckAccordion checkList={task.taskObj} />;
           case TaskType.DateChoice:
             return <DateChooser task={task} />;
           case TaskType.SingleSelection:

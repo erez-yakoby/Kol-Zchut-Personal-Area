@@ -79,7 +79,7 @@ export const ProcessesContent: Array<process> = [
         slides: [
           {
             id: 1,
-            title: "מה קרה לך בעצם?",
+            title: "מי יזם את עזיבת העבודה?",
             description:
               "במצב של סיום עבודה יש הבדל בזכויות המגיעות למי שפוטר מעבודתו ולמי שהתפטר. בשלב זה, נרצה לקבל את הפרטים הראשוניים בנוגע לשינוי הסטטוס התעסוקתי שלך.",
             tasks: [
@@ -113,7 +113,7 @@ export const ProcessesContent: Array<process> = [
           },
           {
             id: 3,
-            title: "מתי אתה מפוטר רשמית",
+            title: "מתי ייסתימו ימי ההודעה המוקדמת",
             description:
               "אופן ההעסקה שלך בין אם עובד בשכר חודשי ובין אם עובד בשכר שעתי/יומי כמו גם כמות הזמן שבה עבדת במקום העבודה משפיעים על כמות הזמן שיש מרגע ההודעה על ההתפטרות ועד זמן סיום העבודה הממשי. ",
             tasks: [
@@ -170,7 +170,8 @@ export const ProcessesContent: Array<process> = [
                     {
                       id: 1,
                       text: "מכתב סיום העסקה",
-                      explanation: "הסבר כלשהו על הסעיף",
+                      explanation:
+                        "המעסיק צריך לתת לעובד הודעה כתובה על סיום ההעסקה, אשר מפרטת את התקופה שבה הועסק העובד אצל המעסיק.",
                       isMarked: false,
                     },
                     {
@@ -197,6 +198,48 @@ export const ProcessesContent: Array<process> = [
             ],
             progressPerc: 0,
           },
+          {
+            id: 2,
+            title: "תשלומים שאתה חייב לקבל",
+            description: "",
+            tasks: [
+              {
+                id: 1,
+                taskType: TaskType.CheckList,
+                taskObj: {
+                  text: "",
+                  options: [
+                    {
+                      id: 1,
+                      text: "שכר אחרון",
+                      explanation:
+                        "המעסיק צריך לתת לעובד הודעה כתובה על סיום ההעסקה, אשר מפרטת את התקופה שבה הועסק העובד אצל המעסיק.",
+                      isMarked: false,
+                    },
+                    {
+                      id: 2,
+                      text: "ימי חופשה",
+                      explanation: "הסבר כלשהו על הסעיף",
+                      isMarked: false,
+                    },
+                    {
+                      id: 3,
+                      text: "ימי הבראה",
+                      explanation: "הסבר כלשהו על הסעיף",
+                      isMarked: false,
+                    },
+                    {
+                      id: 4,
+                      text: "מענק פרישה",
+                      explanation: "הסבר כלשהו על הסעיף",
+                      isMarked: false,
+                    },
+                  ],
+                },
+              },
+            ],
+            progressPerc: 0,
+          },
         ],
       },
       {
@@ -207,7 +250,7 @@ export const ProcessesContent: Array<process> = [
         slides: [
           {
             id: 1,
-            title: "אתה בכלל זכאי לאבטלה?",
+            title: "קודם נבדוק האם מגיעים לך דמי לאבטלה",
             description:
               "על מנת לקבל דמי אבטלה עלייך לענות על מספר תנאים. מילוי השאלון יעזור להבין האם אתה עומד בקריטריונים לקבלת דמי אבטלה ומתי אתה יכול להתחיל לקבל דמי אבטלה.",
             tasks: null,
@@ -316,9 +359,20 @@ export const ProcessesContent: Array<process> = [
         slides: [
           {
             id: 1,
-            title: "רשימת מסמכים שאתה צריך לקבל מהבוס",
-            description: "",
-            tasks: null,
+            title: "איך תירשם לאבטלה?",
+            description:
+              "על מנת להתחיל בתביעה של דמי אבטלה צריך להרשם לאתר לשכת התעסוקה. ניתן לבצע את הרישום בהגעה פיזית ללשכה וניתן לקצר את התהליך באמצעות רישום מקוון. חישוב דמי האבטלה יחל רטרואקטיבית ממועד הרישום הראשוני באתר.",
+            tasks: [
+              {
+                id: 1,
+                taskType: TaskType.Question,
+                taskObj: {
+                  text: "",
+                  numOfAnswers: 2,
+                  possibleAnswers: ["רישום מקוון", "הגעה פיזית ללשכה"],
+                },
+              },
+            ],
             progressPerc: 0,
           },
         ],
