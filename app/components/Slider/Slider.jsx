@@ -18,6 +18,7 @@ import { TaskType } from "@/app/data/content";
 import Questionnaire from "../Button/Button";
 import Image from "next/image";
 import MyStepper from "./MyStepper";
+import {Arrow} from "../arrow";
 
 const Slider = ({ tabContent, nextTabHandler }) => {
   const [activeStep, setActiveStep] = useState(0);
@@ -49,9 +50,9 @@ const Slider = ({ tabContent, nextTabHandler }) => {
           width={18}
           height={18}
         />
-        <h4>
-          <strong>{tabContent.name}</strong>
-        </h4>
+        <h6>
+          {tabContent.name}
+        </h6>
       </div>
 
       <div className="flexRow rtl  ">
@@ -67,7 +68,7 @@ const Slider = ({ tabContent, nextTabHandler }) => {
           <button className="nextSlideButton " onClick={handleNext}>
             {" "}
             <WestIcon />
-            <h4>{activeStep === slides.length - 1 ? "סיים" : "הבא"}</h4>
+            <h4 className="nextbutton">{activeStep === slides.length - 1 ? "סיים" : "הבא"}</h4>
           </button>
         </div>
       </div>

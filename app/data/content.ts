@@ -1,3 +1,8 @@
+import { Description } from "@mui/icons-material";
+import { describe } from "node:test";
+import { title } from "process";
+import { Arrow } from "../components/arrow";
+
 //refers to the main process e.g getting fired.
 type process = {
   id: Number;
@@ -22,6 +27,7 @@ type slide = {
   description: String;
   tasks: Array<task> | null;
   progressPerc: Number;
+  photoPath?: string ; // Optional photo path
 };
 
 type task = {
@@ -36,6 +42,10 @@ export enum TaskType {
   SingleSelection,
   DateChoice,
   NoTask,
+}
+
+type NoTask ={
+  text:string;
 }
 
 type question = {
@@ -82,6 +92,7 @@ export const ProcessesContent: Array<process> = [
             title: "מי יזם את עזיבת העבודה?",
             description:
               "במצב של סיום עבודה יש הבדל בזכויות המגיעות למי שפוטר מעבודתו ולמי שהתפטר. בשלב זה, נרצה לקבל את הפרטים הראשוניים בנוגע לשינוי הסטטוס התעסוקתי שלך.",
+            photoPath: "app\arrows\BigArrow1.svg",
             tasks: [
               {
                 id: 1,
