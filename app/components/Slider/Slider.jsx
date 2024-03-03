@@ -40,7 +40,15 @@ const Slider = ({ tabContent, nextTabHandler }) => {
   const handleBack = () => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
   };
+  
+  let photoCompoment = <></>;
 
+  if (tabContent.photo == "") {
+    photoCompoment = Arrow
+  } else if (tabContent.photo === "") {
+    photoCompoment = Arrow1
+  }
+  else 
   return (
     <div className="slider flexCol ">
       <div className="flexRow rtl sliderTop">
@@ -57,6 +65,7 @@ const Slider = ({ tabContent, nextTabHandler }) => {
 
       <div className="flexRow rtl  ">
         <div className="slideContent flexCol ">
+          {/* <photoCompoment */}
           <MyStepper
             slides={slides}
             activeStep={activeStep}

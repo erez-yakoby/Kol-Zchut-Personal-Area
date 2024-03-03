@@ -30,6 +30,6 @@
     "app/calendar.js",
     "app/components/TabsBar/TabsBar.jsx",
     "app/components/Tasks/Question.jsx"
-  ],
+, "app/components/arrow.jsx"  ],
   "exclude": ["node_modules"]
 }
