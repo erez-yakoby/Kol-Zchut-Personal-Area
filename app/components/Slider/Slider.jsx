@@ -18,7 +18,7 @@ import { TaskType } from "@/app/data/content";
 import Questionnaire from "../Button/Button";
 import Image from "next/image";
 import MyStepper from "./MyStepper";
-import {Arrow} from "../arrow";
+import {LoopArrow , Arrow1, LittleArrowText, ArrowID} from "../arrow";
 
 const Slider = ({ tabContent, nextTabHandler }) => {
   const [activeStep, setActiveStep] = useState(0);
@@ -40,15 +40,19 @@ const Slider = ({ tabContent, nextTabHandler }) => {
   const handleBack = () => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
   };
-  
-  let photoCompoment = <></>;
 
-  if (tabContent.photo == "") {
-    photoCompoment = Arrow
-  } else if (tabContent.photo === "") {
-    photoCompoment = Arrow1
+  let photoCompoment = null;
+
+  if (slides[activeStep]?.photo === "LoopArrow") {
+    photoCompoment = <LoopArrow />;
+  } else if (slides[activeStep]?.photo === "Arrow1") {
+    photoCompoment = <Arrow1 />;
+  } else if (slides[activeStep]?.photo === "LittleArrowText") {
+    photoCompoment = <LittleArrowText />;
+  } else if (slides[activeStep]?.photo === "ArrowID") {
+    photoCompoment = <ArrowID />;
   }
-  else 
+
   return (
     <div className="slider flexCol ">
       <div className="flexRow rtl sliderTop">
@@ -62,10 +66,8 @@ const Slider = ({ tabContent, nextTabHandler }) => {
           {tabContent.name}
         </h6>
       </div>
-
       <div className="flexRow rtl  ">
         <div className="slideContent flexCol ">
-          {/* <photoCompoment */}
           <MyStepper
             slides={slides}
             activeStep={activeStep}
@@ -80,6 +82,7 @@ const Slider = ({ tabContent, nextTabHandler }) => {
             <h4 className="nextbutton">{activeStep === slides.length - 1 ? "סיים" : "הבא"}</h4>
           </button>
         </div>
+        {photoCompoment}
       </div>
 
       {/* <div className="flexRow spaceBet ">

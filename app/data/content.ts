@@ -1,7 +1,7 @@
 import { Description } from "@mui/icons-material";
 import { describe } from "node:test";
 import { title } from "process";
-import { Arrow } from "../components/arrow";
+// import { Arrow } from "../components/arrow";
 
 //refers to the main process e.g getting fired.
 type process = {
@@ -27,7 +27,7 @@ type slide = {
   description: String;
   tasks: Array<task> | null;
   progressPerc: Number;
-  photoPath?: string ; // Optional photo path
+  photo?: string ; // Optional photo path
 };
 
 type task = {
@@ -92,7 +92,7 @@ export const ProcessesContent: Array<process> = [
             title: "מי יזם את עזיבת העבודה?",
             description:
               "במצב של סיום עבודה יש הבדל בזכויות המגיעות למי שפוטר מעבודתו ולמי שהתפטר. בשלב זה, נרצה לקבל את הפרטים הראשוניים בנוגע לשינוי הסטטוס התעסוקתי שלך.",
-            photoPath: "app\arrows\BigArrow1.svg",
+            photo: "LoopArrow",
             tasks: [
               {
                 id: 1,
@@ -111,6 +111,7 @@ export const ProcessesContent: Array<process> = [
             title: "מתי זה קרה?",
             description:
               "על מנת שנוכל להתאים את ההמלצות והשלבים המתאימים לשלב שבו אתה נמצא, נרצה להבין באיזה תאריך הגשת הודעת התפטרות.",
+            photo: "Arrow1",
             tasks: [
               {
                 id: 2,
@@ -271,6 +272,7 @@ export const ProcessesContent: Array<process> = [
             id: 2,
             title: "אתה בן 20-67?",
             description: "",
+            photo: "Arrow1",
             tasks: [
               {
                 id: 1,
@@ -339,6 +341,7 @@ export const ProcessesContent: Array<process> = [
             id: 6,
             title: "האם ב-18 החודשים שקדמו  לאבטלה עבדת במשך שנה?",
             description: "",
+            photo: "LittleArrowText",
             tasks: [
               {
                 id: 1,
@@ -373,6 +376,7 @@ export const ProcessesContent: Array<process> = [
             title: "איך תירשם לאבטלה?",
             description:
               "על מנת להתחיל בתביעה של דמי אבטלה צריך להרשם לאתר לשכת התעסוקה. ניתן לבצע את הרישום בהגעה פיזית ללשכה וניתן לקצר את התהליך באמצעות רישום מקוון. חישוב דמי האבטלה יחל רטרואקטיבית ממועד הרישום הראשוני באתר.",
+            photo: "ArrowID",
             tasks: [
               {
                 id: 1,
