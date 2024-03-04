@@ -27,7 +27,7 @@ type slide = {
   description: String;
   tasks: Array<task> | null;
   progressPerc: Number;
-  photo?: string ; // Optional photo path
+  photo?: string; // Optional photo path
 };
 
 type task = {
@@ -44,9 +44,9 @@ export enum TaskType {
   NoTask,
 }
 
-type NoTask ={
-  text:string;
-}
+type NoTask = {
+  text: string;
+};
 
 type question = {
   text: String;
@@ -81,6 +81,51 @@ export const ProcessesContent: Array<process> = [
     name: "פיטורים",
     progressPerc: 0,
     tabs: [
+      {
+        id: 0,
+        progressPerc: 0,
+        name: "זכותך לדעת זכותך לממש",
+        iconPath: "",
+        slides: [
+          {
+            id: 1,
+            title: "פיטורים? תקבל את מה שמגיע לך",
+            description:
+              "ברוכים הבאים ״לזכותך״ העוזר האישי שלך למימוש הזכויות. על מנת שתוכל לממש את זכויותך בנושא פיטורים בצורה הטובה ביותר יש לעקוב אחר השלבים הבאים.",
+            photo: "LoopArrow",
+            tasks: [
+              {
+                id: 1,
+                taskType: TaskType.Question,
+                taskObj: {
+                  text: "",
+                  numOfAnswers: 2,
+                  possibleAnswers: ["יאללה התחלתי", "המשך תהליך קיים"],
+                },
+              },
+            ],
+            progressPerc: 0,
+          },
+          {
+            id: 2,
+            title: "רגע לפני שנתחיל, איך לפנות אלייך?",
+            description: "",
+            photo: "",
+            tasks: [
+              {
+                id: 2,
+                taskType: TaskType.Question,
+                taskObj: {
+                  text: "",
+                  numOfAnswers: 2,
+                  possibleAnswers: ["נקבה", "זכר"],
+                },
+              },
+            ],
+            progressPerc: 0,
+          },
+        ],
+      },
       {
         id: 1,
         progressPerc: 0,
@@ -352,7 +397,6 @@ export const ProcessesContent: Array<process> = [
                   possibleAnswers: ["כן", "לא"],
                 },
               },
-              
             ],
             progressPerc: 0,
           },

@@ -11,16 +11,17 @@ const Accordion = ({ tabs }) => {
   };
 
   const handleNextTab = (index) => {
+    tabs[index].progressPerc = 100;
     setActiveIndex(index + 1 === tabs.length ? 0 : index + 1);
   };
 
   return (
     <div className="accordion">
-      <div className="rightBar">
+      {/* <div className="rightBar">
         <h5 className="text verticalWriting">
           <strong className="boldText">זכותך</strong> זכותך לדעת זכותך לממש
         </h5>
-      </div>
+      </div> */}
       {tabs.map((tab, index) => {
         return (
           <AccordionItem

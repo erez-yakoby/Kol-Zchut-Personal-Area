@@ -58,7 +58,7 @@ h6 {
   font-weight: 100;
   padding: 0;
   margin: 0;
-  font-family:"Assistant_Bold" ;
+  font-family: "Assistant_Bold";
   color: #231f20;
 }
 /* ################ Buttons ################ */
@@ -177,6 +177,10 @@ h6 {
   padding-top: 30px;
 }
 
+.finishedDiv {
+  background-color: #a26af4;
+}
+
 .regDiv:hover {
   background-color: #a26af4;
   cursor: pointer;
@@ -201,7 +205,6 @@ h6 {
 }
 
 /* ################ Slider ################ */
-
 
 .slider {
   height: 100%;
@@ -261,15 +264,14 @@ h6 {
   font-weight: bold;
 }
 
-.nextbutton{
-  font-family: "Assistant_Regualr" ;
+.nextbutton {
+  font-family: "Assistant_Regualr";
   transition: font-family 700ms ease;
 }
 
-.nextbutton:hover{
-  font-family: "Assistant_Bold" ; 
+.nextbutton:hover {
+  font-family: "Assistant_Bold";
   transition: font-family 700ms ease;
-
 }
 
 .creditsBar {
