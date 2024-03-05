@@ -110,10 +110,12 @@ const Slider = ({ tabContent, nextTabHandler }) => {
     )
   }
 
-  const renderSliderContent = () => {
+  const renderActiveSlideContent = () => {
     return (
-        <div >
-
+        <div className="slideContent flexCol">
+            {renderActiveSlideInformation()}
+            {renderTasks(slides[activeStep])}
+            {renderNextButton()}
         </div>
     )
   }
@@ -130,7 +132,7 @@ const Slider = ({ tabContent, nextTabHandler }) => {
 
   const renderNextButton = () => {
       const nextButtonText = activeStep === slides.length - 1 ? "סיים" : "הבא";
-  return (
+    return (
       <button className="nextSlideButton " onClick={handleNextButtonClicked}>
         <WestIcon/>
         <Heading text={nextButtonText} level={4} className="nextbutton"/>
@@ -160,11 +162,7 @@ const Slider = ({ tabContent, nextTabHandler }) => {
   const renderActiveSlide = () => {
       return (
           <div className="flexRow rtl">
-              <div className="slideContent flexCol">
-                 {renderActiveSlideInformation()}
-                  {renderTasks(slides[activeStep])}
-                  {renderNextButton()}
-              </div>
+              {renderActiveSlideContent()}
               {renderSideArrowComponent()}
           </div>
       )
