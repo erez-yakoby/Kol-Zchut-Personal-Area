@@ -10,14 +10,21 @@ import MyStepper from "./MyStepper";
 import { LoopArrow, Arrow1, LittleArrowText, ArrowID } from "../arrow";
 import Heading from "@/app/components/Heading/Heading";
 
+const SideArrowTypes =
+    {
+        LoopArrow: "LoopArrow",
+        Arrow1: "Arrow1",
+        LittleArrowText: "LittleArrowText",
+        ArrowID: "ArrowID",
+    }
 const Slider = ({ tabContent, nextTabHandler }) => {
-  const [activeStep, setActiveStep] = useState(0);
+    const slides = tabContent.slides;
+    const [activeStep, setActiveStep] = useState(0);
 
   useEffect(() => {
     setActiveStep(0);
   }, [tabContent]);
 
-  const slides = tabContent.slides;
 
   const handleNextButtonClicked = () => {
     if (activeStep === slides.length) {
@@ -31,13 +38,7 @@ const Slider = ({ tabContent, nextTabHandler }) => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
   };
 
-  const SideArrowTypes =
-    {
-        LoopArrow: "LoopArrow",
-        Arrow1: "Arrow1",
-        LittleArrowText: "LittleArrowText",
-        ArrowID: "ArrowID",
-    }
+
   const renderSideArrowComponent = () => {
     if (activeStep === slides.length ) {
       return null;
@@ -109,7 +110,7 @@ const Slider = ({ tabContent, nextTabHandler }) => {
     )
   }
 
-    const renderTasksFinishingSlide = () =>
+    const renderFinishingSlideContent = () =>
     {
         return (
             <div className="tasksSection">
@@ -158,7 +159,7 @@ const Slider = ({ tabContent, nextTabHandler }) => {
 
   }
 
-  const renderFinishedSlide = () => {
+  const renderFinishingSlide = () => {
         return (
             <div className="flexRow rtl">
                 <div className="slideContent flexCol">
@@ -173,7 +174,7 @@ const Slider = ({ tabContent, nextTabHandler }) => {
   const renderSliderBody = () => {
     return (
         <div className="sliderBody">
-          {activeStep === slides.length ? renderFinishedSlide() : renderActiveSlide()}
+          {activeStep === slides.length ? renderFinishingSlide() : renderActiveSlide()}
         </div>
     )
   }
