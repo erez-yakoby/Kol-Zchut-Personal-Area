@@ -21,7 +21,7 @@ const AccordionItem = ({ tab, isOpen, onClick, handleNextTab }) => {
           {tab.id == 0 ? (
             <>
               <h5 className="verticalWriting">זכותך</h5>
-              <h4 className="verticalWriting">{tab.name}</h4>
+              <h3 className="verticalWriting">{tab.name}</h3>
             </>
           ) : (
             <>

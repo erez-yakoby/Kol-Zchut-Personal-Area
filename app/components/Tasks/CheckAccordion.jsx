@@ -3,6 +3,7 @@ import { Collapse, List, ListItem, ListItemIcon } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import Image from "next/image";
+import Heading from "@/app/components/Heading/Heading";
 
 export default function CheckAccordion({ checkList }) {
   const [expanded, setExpanded] = useState([]);
@@ -39,9 +40,10 @@ export default function CheckAccordion({ checkList }) {
                   onClick={() => handleCheckboxChange(index)}
                 />
               </ListItemIcon>
-              <h4>
-                <strong>{option.text}</strong>{" "}
-              </h4>
+                <Heading level={4} text={option.text} className={"textList"}></Heading>
+              {/*<h4>*/}
+              {/*  {option.text}{" "}*/}
+              {/*</h4>*/}
               {expanded.includes(index) ? (
                 <ExpandLessIcon
                   onClick={() => handleToggle(index)}

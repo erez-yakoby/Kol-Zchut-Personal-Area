@@ -1,155 +1,243 @@
 import React, { useState, useEffect } from "react";
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
-import Stepper from "@mui/material/Stepper";
-import Step from "@mui/material/Step";
-import StepLabel from "@mui/material/StepLabel";
-import Button from "@mui/material/Button";
-import IconButton from "@mui/material/IconButton";
-import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 import WestIcon from "@mui/icons-material/West";
-import EastIcon from "@mui/icons-material/East";
 import DateChooser from "../Tasks/DateChooser";
 import Question from "../Tasks/Question";
-import CheckList from "../Tasks/CheckList";
 import SingleSelection from "../Tasks/SingleSelection";
 import CheckAccordion from "../Tasks/CheckAccordion";
 import { TaskType } from "@/app/data/content";
-import Questionnaire from "../Button/Button";
 import Image from "next/image";
 import MyStepper from "./MyStepper";
 import { LoopArrow, Arrow1, LittleArrowText, ArrowID } from "../arrow";
+import Heading from "@/app/components/Heading/Heading";
+import LottieAnimation from "@/app/components/Animation/LottieAnimation";
+import arrowAnimations from "@/public/animations";
+const SideArrowTypes =
+    {
+        LoopArrow: "LoopArrow",
+        Arrow1: "Arrow1",
+        LittleArrowText: "LittleArrowText",
+        ArrowID: "ArrowID",
+    }
 
+    const arrowAnimationsTypes = {
+        arrow1 : 'arrow1',
+        arrow2 : 'arrow2',
+        arrow3 : 'arrow3',
+        arrow4 : 'arrow4',
+        arrow5 : 'arrow5',
+    }
 const Slider = ({ tabContent, nextTabHandler }) => {
-  const [activeStep, setActiveStep] = useState(0);
+    const slides = tabContent.slides;
+    const [activeStep, setActiveStep] = useState(0);
 
   useEffect(() => {
     setActiveStep(0);
   }, [tabContent]);
 
-  const slides = tabContent.slides;
 
-  const handleNext = () => {
-    if (activeStep + 1 >= slides.length) {
+  const handleNextButtonClicked = () => {
+    if (activeStep === slides.length || (activeStep === slides.length - 1 && !tabContent.finishingSlide)) {
       nextTabHandler();
     } else {
       setActiveStep((prevActiveStep) => prevActiveStep + 1);
     }
   };
 
-  const handleBack = () => {
+  const handleBackButtonClicked = () => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
   };
 
-  let photoCompoment = null;
 
-  if (slides[activeStep]?.photo === "LoopArrow") {
-    photoCompoment = <LoopArrow />;
-  } else if (slides[activeStep]?.photo === "Arrow1") {
-    photoCompoment = <Arrow1 />;
-  } else if (slides[activeStep]?.photo === "LittleArrowText") {
-    photoCompoment = <LittleArrowText />;
-  } else if (slides[activeStep]?.photo === "ArrowID") {
-    photoCompoment = <ArrowID />;
+  const renderSideArrowComponent = () => {
+    if (activeStep === slides.length ) {
+      return null;
+    }
+    const arrowType = slides[activeStep]?.photo;
+    switch (arrowType) {
+        case SideArrowTypes.LoopArrow:
+            return <LoopArrow />;
+        case SideArrowTypes.Arrow1:
+            return <Arrow1 />;
+        case SideArrowTypes.LittleArrowText:
+            return <LittleArrowText />;
+        case SideArrowTypes.ArrowID:
+            return <ArrowID />;
+        default:
+            return null;
+    }
   }
 
-  return (
-    <div className="slider flexCol ">
-      <div className="flexRow rtl sliderTop">
-        {tabContent.iconPath != "" && (
-          <Image
-            src={tabContent.iconPath}
-            alt={tabContent.name}
-            width={18}
-            height={18}
-          />
-        )}
-        <h6>{tabContent.name}</h6>
-      </div>
-      <div className="flexRow rtl  ">
-        <div className="slideContent flexCol ">
-          <MyStepper
-            slides={slides}
-            activeStep={activeStep}
-            handleBack={handleBack}
-          />
-          <h1>{slides[activeStep]?.title}</h1>
-          <h4>{slides[activeStep]?.description}</h4>
-          {renderTasks(slides[activeStep])}
-          <button className="nextSlideButton " onClick={handleNext}>
-            {" "}
-            <WestIcon />
-            <h4 className="nextbutton">
-              {activeStep === slides.length - 1 ? "סיים" : "הבא"}
-            </h4>
-          </button>
+  const renderTasks = (slide) => {
+    if (!slide || !slide.tasks) return;
+
+    return (
+        <div className="tasksSection">
+          {slide.tasks.map((task, index) => {
+            switch (task.taskType) {
+              case TaskType.NoTask:
+                break;
+              case TaskType.Question:
+                return <Question question={task.taskObj} />;
+              case TaskType.CheckList:
+                return <CheckAccordion checkList={task.taskObj} />;
+              case TaskType.DateChoice:
+                return <DateChooser task={task} />;
+              case TaskType.SingleSelection:
+                return <SingleSelection selectionObj={task.taskObj} />;
+              default:
+                break;
+            }
+          })}
         </div>
-        {photoCompoment}
-      </div>
+    );
+  };
 
-      {/* <div className="flexRow spaceBet ">
-        <Button
-          variant="text"
-          endIcon={<EastIcon />}
-          disabled={activeStep === 0}
-          onClick={handleBack}
-        >
-          חזור
-        </Button>
-        <Button variant="text" endIcon={<WestIcon />} onClick={handleNext}>
-          {activeStep === slides.length - 1 ? "סיים" : "המשך"}
-        </Button>
-      </div> */}
-      {/* <div className="creditsBar  ">
-        <h4>אתר ״זכותי״ מופעל ע״י כל זכות בע״מ</h4>
-        <h4> האתר פונה לנשים וגברים כאחד</h4>
-        <h4>בסיוע משרד המשפטים ומערך הדיגיטל הלאומי </h4>
-        <Image
-          src="/logos/kolZchoot.svg"
-          alt="/logos/kolZchoot"
-          width={58}
-          height={19}
-        />
-        <Image
-          src="/logos/digital.svg"
-          alt="/logos/digital"
-          width={63}
-          height={22}
-        />
-        <Image
-          src="/logos/ministryOfJustice.svg"
-          alt="/logos/ministryOfJustice"
-          width={71}
-          height={17}
-        />
-      </div> */}
-    </div>
-  );
-};
 
-const renderTasks = (slide) => {
-  if (!slide || !slide.tasks) return;
+  const renderSliderHeader = () => {
+    return (
+        <div className="flexRow rtl sliderTop">
+          {tabContent.iconPath !== "" && (
+              <Image
+                  src={tabContent.iconPath}
+                  alt={tabContent.name}
+                  width={18}
+                  height={18}
+              />
+          )}
+            <Heading text={tabContent.name} level={6}/>
+        </div>
+    )
+  }
+
+  const renderActiveSlideContent = () => {
+    return (
+        <div className="slideContent flexCol">
+            {renderActiveSlideInformation()}
+            {renderTasks(slides[activeStep])}
+            {renderNextButton()}
+        </div>
+    )
+  }
+
+  const getArrowAnimationForFinishingSlideContent = (arrowAnimationType) => {
+      switch (arrowAnimationType) {
+         case arrowAnimationsTypes.arrow1:
+                return arrowAnimations.arrow1;
+            case arrowAnimationsTypes.arrow2:
+                return arrowAnimations.arrow2;
+            case arrowAnimationsTypes.arrow3:
+                return arrowAnimations.arrow3;
+            case arrowAnimationsTypes.arrow4:
+                return arrowAnimations.arrow4;
+            case arrowAnimationsTypes.arrow5:
+                return arrowAnimations.arrow5;
+      }
+
+  }
+
+    const renderFinishingSlideContent = () =>
+    {
+        const animationData = getArrowAnimationForFinishingSlideContent(tabContent.finishingSlide.arrowAnimationType);
+        return (
+            <>
+                <MyStepper
+                    slides={slides}
+                    activeStep={activeStep}
+                    handleBack={handleBackButtonClicked}
+                />
+                <Heading text={tabContent.finishingSlide.title} level={2} className={'finishingSlideTitle'}/>
+                <LottieAnimation animationData ={animationData}/>
+            </>
+        );
+    }
+
+    const getNextButtonText = () => {
+      console.log(activeStep, slides.length);
+      if (activeStep === slides.length - 1) {
+          return "סיים";
+      }
+      else if (activeStep === slides.length) {
+          return "נמשיך לשלב הבא?";
+      }
+        else {
+            return "הבא";
+        }
+    }
+  const renderNextButton = () => {
+      const nextButtonText = getNextButtonText();
+      const buttonClassName = activeStep === slides.length ? "nextSlideButtonFinishingSlide" : "nextSlideButton";
+      const buttonTextClassName = activeStep === slides.length ? "finishingSlideNextButtonText" : "nextbutton";
+    return (
+      <button className={buttonClassName} onClick={handleNextButtonClicked}>
+        <WestIcon/>
+        <Heading text={nextButtonText} level={4} className={buttonTextClassName}/>
+      </button>
+  )
+  }
+
+  //todo: allow sliding within?
+    //todo: prevent code duplication with the stepper for finishing and active slides - currently the position gets messed up
+
+    const renderActiveSlideInformation = () => {
+        const title = slides[activeStep]?.title;
+        const description = slides[activeStep]?.description;
+        return (
+          <>
+              <MyStepper
+                  slides={slides}
+                  activeStep={activeStep}
+                  handleBack={handleBackButtonClicked}
+              />
+              <Heading text={title} level={1}/>
+              {description && <Heading text={description} level={4}/>}
+          </>
+
+      )
+    }
+  const renderActiveSlide = () => {
+      return (
+          <div className="flexRow rtl">
+              {renderActiveSlideContent()}
+              {renderSideArrowComponent()}
+          </div>
+      )
+
+  }
+
+  const renderFinishingSlide = () => {
+        return (
+            <div className="flexRow rtl">
+                <div className="slideContent flexCol">
+                    {renderFinishingSlideContent()}
+                </div>
+                <div>
+                    {renderNextButton()}
+
+                </div>
+
+
+            </div>
+        )
+  }
+  const renderSliderBody = () => {
+    return (
+        <div className="sliderBody">
+          {activeStep === slides.length ? renderFinishingSlide() : renderActiveSlide()}
+        </div>
+    )
+  }
+
+    const sliderClassName = activeStep === slides.length ? "slider flexCol finishingSlide" : "slider flexCol";
+
 
   return (
-    <div className="tasksSection">
-      {slide.tasks.map((task, index) => {
-        switch (task.taskType) {
-          case TaskType.NoTask:
-            break;
-          case TaskType.Question:
-            return <Question question={task.taskObj} />;
-          case TaskType.CheckList:
-            return <CheckAccordion checkList={task.taskObj} />;
-          case TaskType.DateChoice:
-            return <DateChooser task={task} />;
-          case TaskType.SingleSelection:
-            return <SingleSelection selectionObj={task.taskObj} />;
-          default:
-            break;
-        }
-      })}
+    <div className={sliderClassName}>
+      {renderSliderHeader()}
+      {renderSliderBody()}
     </div>
   );
 };
+
+
 
 export default Slider;

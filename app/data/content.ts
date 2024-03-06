@@ -11,6 +11,11 @@ type process = {
   tabs: Array<tab>;
 };
 
+type finishingSlide = {
+    title : String;
+    arrowAnimationType : String;
+    description ?: String;
+}
 // refers to the tabs in the process (sub-processes) e.g getting the documents, דמי אבטלה
 type tab = {
   id: Number;
@@ -18,6 +23,7 @@ type tab = {
   iconPath: String;
   progressPerc: Number;
   slides: Array<slide>;
+  finishingSlide ?: finishingSlide;
 };
 
 // refers to a single slide when you open a tab.
@@ -170,7 +176,7 @@ export const ProcessesContent: Array<process> = [
           },
           {
             id: 3,
-            title: "מתי ייסתימו ימי ההודעה המוקדמת",
+            title: "ימי הודעה מוקדמת שנותרו",
             description:
               "אופן ההעסקה שלך בין אם עובד בשכר חודשי ובין אם עובד בשכר שעתי/יומי כמו גם כמות הזמן שבה עבדת במקום העבודה משפיעים על כמות הזמן שיש מרגע ההודעה על ההתפטרות ועד זמן סיום העבודה הממשי. ",
             tasks: [
@@ -206,6 +212,7 @@ export const ProcessesContent: Array<process> = [
             progressPerc: 0,
           },
         ],
+        finishingSlide : {title : "סיימת את השלב הראשון! ואנחנו מכירים קצת יותר", arrowAnimationType : "arrow1"}
       },
       {
         id: 2,
@@ -298,6 +305,7 @@ export const ProcessesContent: Array<process> = [
             progressPerc: 0,
           },
         ],
+        finishingSlide : {title : "התקדמת צעד נוסף אל היעד!", arrowAnimationType : "arrow2"}
       },
       {
         id: 3,
@@ -408,6 +416,8 @@ export const ProcessesContent: Array<process> = [
             progressPerc: 0,
           },
         ],
+        finishingSlide : {title : "שלב נוסף מאחורייך! אנחנו קרובים לסוף", arrowAnimationType : "arrow3"}
+
       },
       {
         id: 4,
@@ -435,6 +445,8 @@ export const ProcessesContent: Array<process> = [
             progressPerc: 0,
           },
         ],
+        finishingSlide : {title : "רק עוד שלב אחד וסיימת!", arrowAnimationType : "arrow4"}
+
       },
       {
         id: 5,
@@ -450,6 +462,13 @@ export const ProcessesContent: Array<process> = [
             progressPerc: 0,
           },
         ],
+        finishingSlide : {
+          title : "סיימת את כל השלבים במדריך לפיטורים",
+          arrowAnimationType : "arrow5",
+          description : ""
+
+        }
+
       },
     ],
   },
