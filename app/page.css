@@ -112,19 +112,17 @@ h6 {
   border: 1px solid #000;
   padding: 15px 56px;
   cursor: pointer;
-  &:active {
-    position: relative;
-    top: 1px;
   }
-}
+
 .active {
   background: #a26af4;
-  border: 2px solid #000;
   border-radius: 30px;
 }
 
 .questionBtn:hover {
-  background: #a26af4;
+  background: rgba(162, 106, 244, 0.8);
+  transition: 700ms;
+
 }
 
 /* ################ Main Page ################ */
@@ -321,8 +319,15 @@ h6 {
   margin-right: auto;
 }
 
-.nextSlideButton:hover {
+.nextSlideWestIcon:hover {
   transition: 700ms;
+  transform: translatex(-10px);
+
+}
+
+.nextSlideCheckIcon:hover {
+  transition: 700ms;
+  transform: translateY(-10px);
 }
 
 .nextbutton {
@@ -330,10 +335,6 @@ h6 {
   transition: font-family 700ms ease;
 }
 
-
-.nextbutton:hover {
-
-}
 
 .creditsBar {
   display: flex;
@@ -378,6 +379,15 @@ h6 {
 
 .singleselection .MuiRadio-root {
   font-family: "Assistant_Regualr";
+}
+
+.css-1vooibu-MuiSvgIcon-root:hover{
+  transition: 700ms;
+  background-color: #f6efe5;
+  transform: translatex(10px);
+}
+.css-1pbdpej-MuiButtonBase-root-MuiIconButton-root:hover {
+  background-color: #f6efe5;
 }
 
 /* ################ Old Components ################ */

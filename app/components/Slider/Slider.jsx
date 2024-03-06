@@ -167,13 +167,13 @@ const Slider = ({ tabContent, nextTabHandler }) => {
 
   const renderNextButtonIcon = () => {
         if (activeStep === slides.length) {
-            return <WestIcon htmlColor={"#f6efe5"}/>
+            return <WestIcon htmlColor={"#f6efe5"} className="nextSlideWestIcon"/>
         }
         else if (activeStep === slides.length - 1) {
-            return <Check/>
+            return <Check className={"nextSlideCheckIcon"}/>
         }
         else {
-            return <WestIcon/>
+            return <WestIcon className="nextSlideWestIcon"/>
         }
   }
   const renderNextButton = () => {
