@@ -318,6 +318,7 @@ h6 {
   cursor: pointer;
   gap: 5px;
   background-color: #a26af4;
+  margin-right: auto;
 }
 
 .nextSlideButton:hover {

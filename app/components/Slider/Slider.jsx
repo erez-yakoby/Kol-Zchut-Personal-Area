@@ -11,6 +11,7 @@ import { LoopArrow, Arrow1, LittleArrowText, ArrowID } from "../arrow";
 import Heading from "@/app/components/Heading/Heading";
 import LottieAnimation from "@/app/components/Animation/LottieAnimation";
 import arrowAnimations from "@/public/animations";
+import {Check} from "@mui/icons-material";
 const SideArrowTypes =
     {
         LoopArrow: "LoopArrow",
@@ -139,7 +140,7 @@ const Slider = ({ tabContent, nextTabHandler }) => {
     {
         const animationData = getArrowAnimationForFinishingSlideContent(tabContent.finishingSlide.arrowAnimationType);
         return (
-            <>
+            <div className="slideContent flexCol">
                 <MyStepper
                     slides={slides}
                     activeStep={activeStep}
@@ -147,7 +148,7 @@ const Slider = ({ tabContent, nextTabHandler }) => {
                 />
                 <Heading text={tabContent.finishingSlide.title} level={2} className={'finishingSlideTitle'}/>
                 <LottieAnimation animationData ={animationData}/>
-            </>
+            </div>
         );
     }
 
@@ -163,13 +164,25 @@ const Slider = ({ tabContent, nextTabHandler }) => {
             return "הבא";
         }
     }
+
+  const renderNextButtonIcon = () => {
+        if (activeStep === slides.length) {
+            return <WestIcon htmlColor={"#f6efe5"}/>
+        }
+        else if (activeStep === slides.length - 1) {
+            return <Check/>
+        }
+        else {
+            return <WestIcon/>
+        }
+  }
   const renderNextButton = () => {
       const nextButtonText = getNextButtonText();
       const buttonClassName = activeStep === slides.length ? "nextSlideButtonFinishingSlide" : "nextSlideButton";
       const buttonTextClassName = activeStep === slides.length ? "finishingSlideNextButtonText" : "nextbutton";
     return (
       <button className={buttonClassName} onClick={handleNextButtonClicked}>
-        <WestIcon/>
+          {renderNextButtonIcon()}
         <Heading text={nextButtonText} level={4} className={buttonTextClassName}/>
       </button>
   )
@@ -206,16 +219,9 @@ const Slider = ({ tabContent, nextTabHandler }) => {
 
   const renderFinishingSlide = () => {
         return (
-            <div className="flexRow rtl">
-                <div className="slideContent flexCol">
+            <div className="flexCol rtl">
                     {renderFinishingSlideContent()}
-                </div>
-                <div>
                     {renderNextButton()}
-
-                </div>
-
-
             </div>
         )
   }
