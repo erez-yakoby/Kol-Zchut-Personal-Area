@@ -24,22 +24,43 @@
 } */
 
 h1 {
-  font-size: 110px;
-  font-weight: 600;
+  font-size: 107px;
+  /*font-weight: 300;*/
   margin: 0;
-  font-family: "Sunday_Normal";
+  font-family: "Sunday_Medium";
   line-height: 80%;
   color: #231f20;
 }
 
 h4 {
-  font-size: 25px;
+  font-size: 23px;
   font-weight: 100;
   padding: 0;
   margin: 0;
   font-family: "Assistant_Regualr";
   line-height: 129.4%;
   color: #231f20;
+  /* font-weight: 400; */
+}
+
+h3{
+    font-size: 17px;
+    padding: 0;
+    margin: 0;
+    font-family: "Assistant_Regualr";
+    line-height: 129.4%;
+    color: #231f20;
+    /* font-weight: 400; */
+}
+
+.textList {
+  font-size: 27px;
+  padding: 0;
+  margin: 0;
+  font-family: "Sunday_Normal";
+  line-height: 129.4%;
+  color: #231f20;
+  letter-spacing: -0.6px;
   /* font-weight: 400; */
 }
 
@@ -61,6 +82,27 @@ h6 {
   font-family: "Assistant_Bold";
   color: #231f20;
 }
+
+.finishingSlideTitle {
+    font-size: 110px;
+    font-weight: 600;
+    margin: 0;
+    font-family: "Sunday_Normal";
+    line-height: 80%;
+    color: #f6efe5;
+}
+
+.finishingSlideNextButtonText {
+  font-size: 25px;
+  font-weight: 100;
+  padding: 0;
+  margin: 0;
+  font-family: "Assistant_Regualr";
+  line-height: 129.4%;
+  color: #f6efe5;
+  /* font-weight: 400; */
+}
+
 /* ################ Buttons ################ */
 
 .questionBtn {
@@ -163,6 +205,7 @@ h6 {
   display: flex;
   justify-content: center;
 }
+
 .selectedDiv {
   flex-grow: 8;
   border-left: 2px solid black;
@@ -245,6 +288,10 @@ h6 {
   gap: 27px;
 }
 
+.finishingSlide {
+  background-color: #a26af4;
+}
+
 .nextSlideButton {
   display: flex;
   flex-direction: row-reverse;
@@ -259,9 +306,22 @@ h6 {
   background-color: #f6efe5;
 }
 
+.nextSlideButtonFinishingSlide {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  align-self: flex-start;
+  padding: 10px 10px 10px 10px;
+  border: none;
+  border-radius: 20px;
+  transition: 1000ms;
+  cursor: pointer;
+  gap: 5px;
+  background-color: #a26af4;
+}
+
 .nextSlideButton:hover {
   transition: 700ms;
-  font-weight: bold;
 }
 
 .nextbutton {
@@ -269,9 +329,9 @@ h6 {
   transition: font-family 700ms ease;
 }
 
+
 .nextbutton:hover {
-  font-family: "Assistant_Bold";
-  transition: font-family 700ms ease;
+
 }
 
 .creditsBar {
