@@ -9,13 +9,22 @@ import Image from "next/image";
 import MyStepper from "./MyStepper";
 import { LoopArrow, Arrow1, LittleArrowText, ArrowID } from "../arrow";
 import Heading from "@/app/components/Heading/Heading";
-
+import LottieAnimation from "@/app/components/Animation/LottieAnimation";
+import arrowAnimations from "@/public/animations";
 const SideArrowTypes =
     {
         LoopArrow: "LoopArrow",
         Arrow1: "Arrow1",
         LittleArrowText: "LittleArrowText",
         ArrowID: "ArrowID",
+    }
+
+    const arrowAnimationsTypes = {
+        arrow1 : 'arrow1',
+        arrow2 : 'arrow2',
+        arrow3 : 'arrow3',
+        arrow4 : 'arrow4',
+        arrow5 : 'arrow5',
     }
 const Slider = ({ tabContent, nextTabHandler }) => {
     const slides = tabContent.slides;
@@ -27,7 +36,7 @@ const Slider = ({ tabContent, nextTabHandler }) => {
 
 
   const handleNextButtonClicked = () => {
-    if (activeStep === slides.length) {
+    if (activeStep === slides.length || (activeStep === slides.length - 1 && !tabContent.finishingSlide)) {
       nextTabHandler();
     } else {
       setActiveStep((prevActiveStep) => prevActiveStep + 1);
@@ -110,22 +119,58 @@ const Slider = ({ tabContent, nextTabHandler }) => {
     )
   }
 
+  const getArrowAnimationForFinishingSlideContent = (arrowAnimationType) => {
+      switch (arrowAnimationType) {
+         case arrowAnimationsTypes.arrow1:
+                return arrowAnimations.arrow1;
+            case arrowAnimationsTypes.arrow2:
+                return arrowAnimations.arrow2;
+            case arrowAnimationsTypes.arrow3:
+                return arrowAnimations.arrow3;
+            case arrowAnimationsTypes.arrow4:
+                return arrowAnimations.arrow4;
+            case arrowAnimationsTypes.arrow5:
+                return arrowAnimations.arrow5;
+      }
+
+  }
+
     const renderFinishingSlideContent = () =>
     {
+        const animationData = getArrowAnimationForFinishingSlideContent(tabContent.finishingSlide.arrowAnimationType);
         return (
-            <div className="tasksSection">
-                <h1>סיימת</h1>
-                <h4>תודה רבה</h4>
-            </div>
+            <>
+                <MyStepper
+                    slides={slides}
+                    activeStep={activeStep}
+                    handleBack={handleBackButtonClicked}
+                />
+                <Heading text={tabContent.finishingSlide.title} level={2} className={'finishingSlideTitle'}/>
+                <LottieAnimation animationData ={animationData}/>
+            </>
         );
     }
 
+    const getNextButtonText = () => {
+      console.log(activeStep, slides.length);
+      if (activeStep === slides.length - 1) {
+          return "סיים";
+      }
+      else if (activeStep === slides.length) {
+          return "נמשיך לשלב הבא?";
+      }
+        else {
+            return "הבא";
+        }
+    }
   const renderNextButton = () => {
-      const nextButtonText = activeStep === slides.length - 1 ? "סיים" : "הבא";
+      const nextButtonText = getNextButtonText();
+      const buttonClassName = activeStep === slides.length ? "nextSlideButtonFinishingSlide" : "nextSlideButton";
+      const buttonTextClassName = activeStep === slides.length ? "finishingSlideNextButtonText" : "nextbutton";
     return (
-      <button className="nextSlideButton " onClick={handleNextButtonClicked}>
+      <button className={buttonClassName} onClick={handleNextButtonClicked}>
         <WestIcon/>
-        <Heading text={nextButtonText} level={4} className="nextbutton"/>
+        <Heading text={nextButtonText} level={4} className={buttonTextClassName}/>
       </button>
   )
   }
@@ -144,7 +189,7 @@ const Slider = ({ tabContent, nextTabHandler }) => {
                   handleBack={handleBackButtonClicked}
               />
               <Heading text={title} level={1}/>
-              <Heading text={description} level={4}/>
+              {description && <Heading text={description} level={4}/>}
           </>
 
       )
@@ -163,11 +208,14 @@ const Slider = ({ tabContent, nextTabHandler }) => {
         return (
             <div className="flexRow rtl">
                 <div className="slideContent flexCol">
-                    <Heading text={tabContent.name} level={1}/>
-                    {renderTasksFinishingSlide()}
-                    {renderNextButton()}
+                    {renderFinishingSlideContent()}
                 </div>
-                {renderSideArrowComponent()}
+                <div>
+                    {renderNextButton()}
+
+                </div>
+
+
             </div>
         )
   }
@@ -179,8 +227,11 @@ const Slider = ({ tabContent, nextTabHandler }) => {
     )
   }
 
+    const sliderClassName = activeStep === slides.length ? "slider flexCol finishingSlide" : "slider flexCol";
+
+
   return (
-    <div className="slider flexCol">
+    <div className={sliderClassName}>
       {renderSliderHeader()}
       {renderSliderBody()}
     </div>
