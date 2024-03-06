@@ -11,6 +11,8 @@ import { LoopArrow, Arrow1, LittleArrowText, ArrowID } from "../arrow";
 import Heading from "@/app/components/Heading/Heading";
 import LottieAnimation from "@/app/components/Animation/LottieAnimation";
 import arrowAnimations from "@/public/animations";
+import {KolZchut} from "../arrow";
+
 const SideArrowTypes =
     {
         LoopArrow: "LoopArrow",
@@ -169,7 +171,7 @@ const Slider = ({ tabContent, nextTabHandler }) => {
       const buttonTextClassName = activeStep === slides.length ? "finishingSlideNextButtonText" : "nextbutton";
     return (
       <button className={buttonClassName} onClick={handleNextButtonClicked}>
-        <WestIcon/>
+        <WestIcon className="nextSlideWestIcon"/>
         <Heading text={nextButtonText} level={4} className={buttonTextClassName}/>
       </button>
   )
