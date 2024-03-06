@@ -12,7 +12,7 @@ const Question = ({ question }) => {
   const answers = question.possibleAnswers;
   console.log(answers);
   return (
-    <div className="flexRow gap-60 rtl ">
+    <div className="flexRow gap-30 rtl ">
       {answers.map((answer, index) => {
         return (
           <button
