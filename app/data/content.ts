@@ -12,10 +12,10 @@ type process = {
 };
 
 type finishingSlide = {
-    title : String;
-    arrowAnimationType : String;
-    description ?: String;
-}
+  title: String;
+  arrowAnimationType: String;
+  description?: String;
+};
 // refers to the tabs in the process (sub-processes) e.g getting the documents, דמי אבטלה
 type tab = {
   id: Number;
@@ -23,7 +23,7 @@ type tab = {
   iconPath: String;
   progressPerc: Number;
   slides: Array<slide>;
-  finishingSlide ?: finishingSlide;
+  finishingSlide?: finishingSlide;
 };
 
 // refers to a single slide when you open a tab.
@@ -39,7 +39,7 @@ type slide = {
 type task = {
   id: Number;
   taskType: TaskType;
-  taskObj: question | checkList | dateChoice;
+  taskObj: question | checkList | dateChoice | textFiller;
 };
 
 export enum TaskType {
@@ -47,6 +47,7 @@ export enum TaskType {
   CheckList,
   SingleSelection,
   DateChoice,
+  TextFiller,
   NoTask,
 }
 
@@ -79,6 +80,11 @@ type checkListOption = {
 
 type dateChoice = {
   text: String;
+};
+
+type textFiller = {
+  text: String;
+  filling: String;
 };
 
 export const ProcessesContent: Array<process> = [
@@ -208,16 +214,27 @@ export const ProcessesContent: Array<process> = [
                   text: "תאריך תחילת עבודה",
                 },
               },
+              {
+                id: 5,
+                taskType: TaskType.TextFiller,
+                taskObj: {
+                  text: "ימי הודעה מוקדמת שנותרו",
+                  filling: "",
+                },
+              },
             ],
             progressPerc: 0,
           },
         ],
-        finishingSlide : {title : "סיימת את השלב הראשון! ואנחנו מכירים קצת יותר", arrowAnimationType : "arrow1"}
+        finishingSlide: {
+          title: "סיימת את השלב הראשון! ואנחנו מכירים קצת יותר",
+          arrowAnimationType: "arrow1",
+        },
       },
       {
         id: 2,
         progressPerc: 0,
-        name: "מסמכים",
+        name: "סגירת חשבון",
         iconPath: "/tabsIcons/icon2.svg",
         slides: [
           {
@@ -241,19 +258,22 @@ export const ProcessesContent: Array<process> = [
                     {
                       id: 2,
                       text: "שחרור כספים",
-                      explanation: "הסבר כלשהו על הסעיף",
+                      explanation:
+                        "מסמך המפרט את כספי הפיצויים ששולמו לעובד עקב סיום עבודתו. מהווה בסיס למתן פטור ממס הכנסה על פיצויי הפיטורים או לקביעת אחוז ניקוי מס הכנסה מהם.",
                       isMarked: false,
                     },
                     {
                       id: 3,
                       text: "טופס 106",
-                      explanation: "הסבר כלשהו על הסעיף",
+                      explanation:
+                        "טופס המרכז ומפרט את כל התשלומים והניכויים שנוכו משכרו של העובד במהלך כל השנה (מינואר עד דצמבר).",
                       isMarked: false,
                     },
                     {
                       id: 4,
                       text: "טופס 161",
-                      explanation: "הסבר כלשהו על הסעיף",
+                      explanation:
+                        "הודעת מעביד לרשות המיסים על פרישה מעבודה של עובד. מפרט את כספי הפיצויים וכספים נוספים ששולמו עקב סיום עבודה ואת הכספים שהופרשו לביטוח הפנסיוני.",
                       isMarked: false,
                     },
                   ],
@@ -277,25 +297,28 @@ export const ProcessesContent: Array<process> = [
                       id: 1,
                       text: "שכר אחרון",
                       explanation:
-                        "המעסיק צריך לתת לעובד הודעה כתובה על סיום ההעסקה, אשר מפרטת את התקופה שבה הועסק העובד אצל המעסיק.",
+                        "שכר מלא על תקופת ההודעה המוקדמת. שים לב אם עבדת בתקופה זו השכר כולל תנאים סוציאליים ואם לא עבדת השכר יתנן ללא תנאים סוציאליים.",
                       isMarked: false,
                     },
                     {
                       id: 2,
                       text: "ימי חופשה",
-                      explanation: "הסבר כלשהו על הסעיף",
+                      explanation:
+                        "תשלום על ימי החופשה שנותרו לך. ניתן לבקש לנצל גם כימי חופשה בתקופת ההודעה המוקדמת באישור המעסיק.",
                       isMarked: false,
                     },
                     {
                       id: 3,
                       text: "ימי הבראה",
-                      explanation: "הסבר כלשהו על הסעיף",
+                      explanation:
+                        "אם התפטרת אחרי יותר משנת עבודה, אתה זכאי לקבל את דמי ההבראה שנצברו לזכותך.",
                       isMarked: false,
                     },
                     {
                       id: 4,
                       text: "מענק פרישה",
-                      explanation: "הסבר כלשהו על הסעיף",
+                      explanation:
+                        "סכום אותו המעסיק נותן בתום תקופת העבודה. הסכום שתקבל תלוי בהסכם העבודה שלך.",
                       isMarked: false,
                     },
                   ],
@@ -305,7 +328,10 @@ export const ProcessesContent: Array<process> = [
             progressPerc: 0,
           },
         ],
-        finishingSlide : {title : "התקדמת צעד נוסף אל היעד!", arrowAnimationType : "arrow2"}
+        finishingSlide: {
+          title: "התקדמת צעד נוסף אל היעד!",
+          arrowAnimationType: "arrow2",
+        },
       },
       {
         id: 3,
@@ -410,14 +436,16 @@ export const ProcessesContent: Array<process> = [
           },
           {
             id: 7,
-            title: "זכית! איזה כיף אתה זכאי לדמי אבטלה",
+            title: "זכית! איזה כיף, אתה זכאי לדמי אבטלה",
             description: "",
             tasks: null,
             progressPerc: 0,
           },
         ],
-        finishingSlide : {title : "שלב נוסף מאחורייך! אנחנו קרובים לסוף", arrowAnimationType : "arrow3"}
-
+        finishingSlide: {
+          title: "שלב נוסף מאחורייך! אנחנו קרובים לסוף",
+          arrowAnimationType: "arrow3",
+        },
       },
       {
         id: 4,
@@ -444,31 +472,170 @@ export const ProcessesContent: Array<process> = [
             ],
             progressPerc: 0,
           },
+          {
+            id: 2,
+            title: "כיצד לבצע הרשמה מקוונת",
+            description:
+              "1. כנס לאתר שירות התעסוקה ובצע רישום לאתר\n2. בתיבת המייל תמצא מייל אימות, לחץ על הקישור לצורך סיום הרשמה\n3. כנס חזרה לאתר שירות התעסוקה באמצעות פרטי המשתמש\n4. לחץ ״אזור אישי״, ״רישום ראשוני ללשכה״ והזן את הפרטים\n5. היכנס לאתר ביטוח לאומי והגש בקשה לתביעה",
+            photo: "ArrowID",
+            tasks: null,
+            progressPerc: 0,
+          },
+          {
+            id: 3,
+            title: "הגעה ראשונה ללשכה",
+            description:
+              "להשלמת הרישום יש להגיע ללשכת התעסוקה בתווך זמן של 14 ימים קלנדריים מתאריך הרישום באתר.",
+            photo: "ArrowID",
+            tasks: [
+              {
+                id: 1,
+                taskType: TaskType.TextFiller,
+                taskObj: {
+                  text: "עלייך להגיע ללשכה עד לתאריך:",
+                  filling: "מילוי",
+                },
+              },
+            ],
+            progressPerc: 0,
+          },
         ],
-        finishingSlide : {title : "רק עוד שלב אחד וסיימת!", arrowAnimationType : "arrow4"}
-
+        finishingSlide: {
+          title: "רק עוד שלב אחד וסיימת!",
+          arrowAnimationType: "arrow4",
+        },
       },
       {
         id: 5,
         progressPerc: 0,
-        name: "בדיקת זכאות",
+        name: "התייצבות בלשכה",
         iconPath: "/tabsIcons/icon5.svg",
         slides: [
           {
             id: 1,
-            title: "רשימת מסמכים שאתה צריך לקבל מהבוס",
-            description: "",
-            tasks: null,
+            title: "כמה זמן אבטלה מגיע לך",
+            description:
+              "כמות ימי האבטלה שאתה זכאי להם מושפעת משני פרמטרים: גיל ומספר בני משפחה אשר תלויים בך (בת/בת זוג, ילדים מתחת לגיל 18).",
+            tasks: [
+              {
+                id: 3,
+                taskType: TaskType.SingleSelection,
+                taskObj: {
+                  text: "מה הגיל שלך?",
+                  options: [
+                    {
+                      id: 1,
+                      text: "מתחת ל-25",
+                      explanation: "",
+                      isMarked: false,
+                    },
+                    {
+                      id: 2,
+                      text: "25-28",
+                      explanation: "",
+                      isMarked: false,
+                    },
+                    {
+                      id: 3,
+                      text: "35-45",
+                      explanation: "",
+                      isMarked: false,
+                    },
+                    {
+                      id: 4,
+                      text: "45 ומעלה",
+                      explanation: "",
+                      isMarked: false,
+                    },
+                  ],
+                },
+              },
+              {
+                id: 3,
+                taskType: TaskType.SingleSelection,
+                taskObj: {
+                  text: "כמה בני משפחה תלויים בך?",
+                  options: [
+                    {
+                      id: 1,
+                      text: "פחות מ-3 (0-2)",
+                      explanation: "",
+                      isMarked: false,
+                    },
+                    {
+                      id: 2,
+                      text: "3 ומעלה",
+                      explanation: "",
+                      isMarked: false,
+                    },
+                  ],
+                },
+              },
+              {
+                id: 3,
+                taskType: TaskType.TextFiller,
+                taskObj: {
+                  text: "ימי אבטלה שאתה זכאי להם",
+                  filling: "מילוי",
+                },
+              },
+            ],
+            progressPerc: 0,
+          },
+          {
+            id: 2,
+            title: "מתי תצטרך להגיע ללשכה?",
+            description:
+              "במסגרת חתימה על דמי אבטלה נדרש להגיע מידי שבוע ללשכת התעסוקה ולהתייצב בעמדות ההחתמה. ההגעה ללשכה צריכה להתבצע ביום קבוע מידי שבוע לאורך תקופת דמי האבטלה שאתה זכאי לה. אנשים מעל גיל 50, נדרשים להגיע פעם בחודש.",
+            tasks: [
+              {
+                id: 3,
+                taskType: TaskType.SingleSelection,
+                taskObj: {
+                  text: "בחר את יום ההגעה הקבוע שלך ללשכה",
+                  options: [
+                    {
+                      id: 1,
+                      text: "ראשון",
+                      explanation: "",
+                      isMarked: false,
+                    },
+                    {
+                      id: 2,
+                      text: "שני",
+                      explanation: "",
+                      isMarked: false,
+                    },
+                    {
+                      id: 3,
+                      text: "שלישי",
+                      explanation: "",
+                      isMarked: false,
+                    },
+                    {
+                      id: 4,
+                      text: "רביעי",
+                      explanation: "",
+                      isMarked: false,
+                    },
+                    {
+                      id: 5,
+                      text: "חמישי",
+                      explanation: "",
+                      isMarked: false,
+                    },
+                  ],
+                },
+              },
+            ],
             progressPerc: 0,
           },
         ],
-        finishingSlide : {
-          title : "סיימת את כל השלבים במדריך לפיטורים",
-          arrowAnimationType : "arrow5",
-          description : ""
-
-        }
-
+        finishingSlide: {
+          title: "סיימת את כל השלבים במדריך לפיטורים",
+          arrowAnimationType: "arrow5",
+          description: "",
+        },
       },
     ],
   },
