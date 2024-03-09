@@ -76,6 +76,7 @@ type checkListOption = {
   text: String;
   explanation: String;
   isMarked: Boolean;
+  checklistphoto ?: string;
 };
 
 type dateChoice = {
@@ -299,6 +300,7 @@ export const ProcessesContent: Array<process> = [
                       explanation:
                         "שכר מלא על תקופת ההודעה המוקדמת. שים לב אם עבדת בתקופה זו השכר כולל תנאים סוציאליים ואם לא עבדת השכר יתנן ללא תנאים סוציאליים.",
                       isMarked: false,
+                      checklistphoto: "LastSalary"
                     },
                     {
                       id: 2,
@@ -306,6 +308,7 @@ export const ProcessesContent: Array<process> = [
                       explanation:
                         "תשלום על ימי החופשה שנותרו לך. ניתן לבקש לנצל גם כימי חופשה בתקופת ההודעה המוקדמת באישור המעסיק.",
                       isMarked: false,
+                      checklistphoto: "VacationDays"
                     },
                     {
                       id: 3,
@@ -313,6 +316,7 @@ export const ProcessesContent: Array<process> = [
                       explanation:
                         "אם התפטרת אחרי יותר משנת עבודה, אתה זכאי לקבל את דמי ההבראה שנצברו לזכותך.",
                       isMarked: false,
+                      checklistphoto: "IncomeTax"
                     },
                     {
                       id: 4,
@@ -320,6 +324,7 @@ export const ProcessesContent: Array<process> = [
                       explanation:
                         "סכום אותו המעסיק נותן בתום תקופת העבודה. הסכום שתקבל תלוי בהסכם העבודה שלך.",
                       isMarked: false,
+                      checklistphoto: "IncomeTax"
                     },
                   ],
                 },

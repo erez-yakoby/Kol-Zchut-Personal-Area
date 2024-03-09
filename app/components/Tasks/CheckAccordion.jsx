@@ -4,6 +4,8 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import Image from "next/image";
 import Heading from "@/app/components/Heading/Heading";
+import {IncomeTax, VacationDays, LastSalary} from "../arrow";
+
 
 export default function CheckAccordion({ checkList }) {
   const [expanded, setExpanded] = useState([]);
@@ -26,6 +28,28 @@ export default function CheckAccordion({ checkList }) {
   const handleCheckboxChange = (index) => {
     checkList.options[index].isMarked = !checkList.options[index].isMarked;
     setOptions(checkList.options);
+  };
+
+  // let ChecklistPhoto = null;
+
+  // if (options[index].checklistphoto === "IncomeTax") {
+  //   ChecklistPhoto = <IncomeTax />;
+  // } else if (options[index].checklistphoto === "VacationDays") {
+  //   ChecklistPhoto = <VacationDays />;
+  // } else if (options[index].checklistphoto === "LastSalary") {
+  //   ChecklistPhoto = <LastSalary />;
+  // }
+  const getChecklistPhoto = (checklistphoto) => {
+    switch (checklistphoto) {
+      case "IncomeTax":
+        return <IncomeTax />;
+      case "VacationDays":
+        return <VacationDays />;
+      case "LastSalary":
+        return <LastSalary />;
+      default:
+        return null;
+    }
   };
 
   return (
@@ -54,15 +78,19 @@ export default function CheckAccordion({ checkList }) {
                   onClick={() => handleToggle(index)}
                   className="cursor"
                 />
+                
               )}
+            
             </ListItem>
-            <Collapse
-              in={expanded.includes(index)}
-              timeout="auto"
-              unmountOnExit
-            >
-              <h4 className="checkListOptionExp">{option.explanation}</h4>
-            </Collapse>
+              <Collapse
+                in={expanded.includes(index)}
+                timeout="auto"
+                unmountOnExit
+              >
+                <h4 className="checkListOptionExp">{option.explanation}</h4>
+                
+                
+              </Collapse>   
           </div>
         ))}
       </List>
