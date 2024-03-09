@@ -10,6 +10,7 @@ const CheckList = ({ checkList }) => {
     console.log(event.target.id);
   };
 
+
   return (
     <div>
       <FormGroup>
@@ -22,6 +23,7 @@ const CheckList = ({ checkList }) => {
             />
           );
         })}
+        
       </FormGroup>
     </div>
   );

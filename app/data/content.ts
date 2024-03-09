@@ -75,6 +75,7 @@ type checkListOption = {
   text: String;
   explanation: String;
   isMarked: Boolean;
+  checklistphoto ?: string;
 };
 
 type dateChoice = {
@@ -279,24 +280,28 @@ export const ProcessesContent: Array<process> = [
                       explanation:
                         "המעסיק צריך לתת לעובד הודעה כתובה על סיום ההעסקה, אשר מפרטת את התקופה שבה הועסק העובד אצל המעסיק.",
                       isMarked: false,
+                      checklistphoto: "LastSalary"
                     },
                     {
                       id: 2,
                       text: "ימי חופשה",
                       explanation: "הסבר כלשהו על הסעיף",
                       isMarked: false,
+                      checklistphoto: "VacationDays"
                     },
                     {
                       id: 3,
                       text: "ימי הבראה",
                       explanation: "הסבר כלשהו על הסעיף",
                       isMarked: false,
+                      checklistphoto: "IncomeTax"
                     },
                     {
                       id: 4,
                       text: "מענק פרישה",
                       explanation: "הסבר כלשהו על הסעיף",
                       isMarked: false,
+                      checklistphoto: "IncomeTax"
                     },
                   ],
                 },
