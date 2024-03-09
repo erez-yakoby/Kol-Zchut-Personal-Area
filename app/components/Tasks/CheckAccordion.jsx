@@ -111,8 +111,8 @@ const CheckBox = ({ checked, onClick }) => {
     >
       {isChecked && (
         <Image
-          src="/sliderIcons/checkSmall.svg"
-          alt={"checkSmall"}
+          src="/sliderIcons/checksmall.svg"
+          alt={"checksmall"}
           height={21}
           width={27}
         />
