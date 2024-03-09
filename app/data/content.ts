@@ -76,7 +76,7 @@ type checkListOption = {
   text: String;
   explanation: String;
   isMarked: Boolean;
-  checklistphoto ?: string;
+  checklistphoto?: string;
 };
 
 type dateChoice = {
@@ -102,7 +102,7 @@ export const ProcessesContent: Array<process> = [
         slides: [
           {
             id: 1,
-            title: "פיטורים? תקבל את מה שמגיע לך",
+            title: "פיטורים?\nתקבל את מה שמגיע לך",
             description:
               "ברוכים הבאים ״לזכותך״ העוזר האישי שלך למימוש הזכויות. על מנת שתוכל לממש את זכויותך בנושא פיטורים בצורה הטובה ביותר יש לעקוב אחר השלבים הבאים.",
             photo: "LoopArrow",
@@ -183,7 +183,7 @@ export const ProcessesContent: Array<process> = [
           },
           {
             id: 3,
-            title: "ימי הודעה מוקדמת שנותרו",
+            title: "ימי הודעה\nמוקדמת שנותרו",
             description:
               "אופן ההעסקה שלך בין אם עובד בשכר חודשי ובין אם עובד בשכר שעתי/יומי כמו גם כמות הזמן שבה עבדת במקום העבודה משפיעים על כמות הזמן שיש מרגע ההודעה על ההתפטרות ועד זמן סיום העבודה הממשי. ",
             tasks: [
@@ -191,7 +191,7 @@ export const ProcessesContent: Array<process> = [
                 id: 3,
                 taskType: TaskType.SingleSelection,
                 taskObj: {
-                  text: "סוג שכר",
+                  text: "בחר מהו סוג השכר שלך",
                   options: [
                     {
                       id: 1,
@@ -212,15 +212,15 @@ export const ProcessesContent: Array<process> = [
                 id: 4,
                 taskType: TaskType.DateChoice,
                 taskObj: {
-                  text: "תאריך תחילת עבודה",
+                  text: "הזן את תאריך תחילת העבודה",
                 },
               },
               {
                 id: 5,
                 taskType: TaskType.TextFiller,
                 taskObj: {
-                  text: "ימי הודעה מוקדמת שנותרו",
-                  filling: "",
+                  text: "ימי הודעה מוקדמת שנותרו:",
+                  filling: "36",
                 },
               },
             ],
@@ -300,7 +300,7 @@ export const ProcessesContent: Array<process> = [
                       explanation:
                         "שכר מלא על תקופת ההודעה המוקדמת. שים לב אם עבדת בתקופה זו השכר כולל תנאים סוציאליים ואם לא עבדת השכר יתנן ללא תנאים סוציאליים.",
                       isMarked: false,
-                      checklistphoto: "LastSalary"
+                      checklistphoto: "LastSalary",
                     },
                     {
                       id: 2,
@@ -308,7 +308,7 @@ export const ProcessesContent: Array<process> = [
                       explanation:
                         "תשלום על ימי החופשה שנותרו לך. ניתן לבקש לנצל גם כימי חופשה בתקופת ההודעה המוקדמת באישור המעסיק.",
                       isMarked: false,
-                      checklistphoto: "VacationDays"
+                      checklistphoto: "VacationDays",
                     },
                     {
                       id: 3,
@@ -316,7 +316,7 @@ export const ProcessesContent: Array<process> = [
                       explanation:
                         "אם התפטרת אחרי יותר משנת עבודה, אתה זכאי לקבל את דמי ההבראה שנצברו לזכותך.",
                       isMarked: false,
-                      checklistphoto: "IncomeTax"
+                      checklistphoto: "IncomeTax",
                     },
                     {
                       id: 4,
@@ -324,7 +324,7 @@ export const ProcessesContent: Array<process> = [
                       explanation:
                         "סכום אותו המעסיק נותן בתום תקופת העבודה. הסכום שתקבל תלוי בהסכם העבודה שלך.",
                       isMarked: false,
-                      checklistphoto: "IncomeTax"
+                      checklistphoto: "IncomeTax",
                     },
                   ],
                 },
@@ -356,7 +356,6 @@ export const ProcessesContent: Array<process> = [
             id: 2,
             title: "אתה בן 20-67?",
             description: "",
-            photo: "Arrow1",
             tasks: [
               {
                 id: 1,
@@ -406,7 +405,7 @@ export const ProcessesContent: Array<process> = [
           },
           {
             id: 5,
-            title: "המעסיק שלך אינו תושב ישראל/הינך עובד של שירות מדינה אחרת?",
+            title: "המעסיק שלך אינו תושב ישראל?",
             description: "",
             tasks: [
               {
@@ -481,8 +480,7 @@ export const ProcessesContent: Array<process> = [
             id: 2,
             title: "כיצד לבצע הרשמה מקוונת",
             description:
-              "1. כנס לאתר שירות התעסוקה ובצע רישום לאתר\n2. בתיבת המייל תמצא מייל אימות, לחץ על הקישור לצורך סיום הרשמה\n3. כנס חזרה לאתר שירות התעסוקה באמצעות פרטי המשתמש\n4. לחץ ״אזור אישי״, ״רישום ראשוני ללשכה״ והזן את הפרטים\n5. היכנס לאתר ביטוח לאומי והגש בקשה לתביעה",
-            photo: "ArrowID",
+              "1.  כנס לאתר שירות התעסוקה ובצע רישום לאתר\n2.  בתיבת המייל תמצא מייל אימות, לחץ על הקישור לצורך סיום הרשמה\n3.  כנס חזרה לאתר שירות התעסוקה באמצעות פרטי המשתמש\n4.  לחץ ״אזור אישי״, ״רישום ראשוני ללשכה״ והזן את הפרטים\n5.  היכנס לאתר ביטוח לאומי והגש בקשה לתביעה",
             tasks: null,
             progressPerc: 0,
           },
@@ -491,14 +489,13 @@ export const ProcessesContent: Array<process> = [
             title: "הגעה ראשונה ללשכה",
             description:
               "להשלמת הרישום יש להגיע ללשכת התעסוקה בתווך זמן של 14 ימים קלנדריים מתאריך הרישום באתר.",
-            photo: "ArrowID",
             tasks: [
               {
                 id: 1,
                 taskType: TaskType.TextFiller,
                 taskObj: {
                   text: "עלייך להגיע ללשכה עד לתאריך:",
-                  filling: "מילוי",
+                  filling: "22.03.2024",
                 },
               },
             ],
@@ -563,7 +560,7 @@ export const ProcessesContent: Array<process> = [
                   options: [
                     {
                       id: 1,
-                      text: "פחות מ-3 (0-2)",
+                      text: "פחות מ-3",
                       explanation: "",
                       isMarked: false,
                     },
@@ -580,8 +577,8 @@ export const ProcessesContent: Array<process> = [
                 id: 3,
                 taskType: TaskType.TextFiller,
                 taskObj: {
-                  text: "ימי אבטלה שאתה זכאי להם",
-                  filling: "מילוי",
+                  text: "ימי אבטלה שאתה זכאי להם:",
+                  filling: "20",
                 },
               },
             ],

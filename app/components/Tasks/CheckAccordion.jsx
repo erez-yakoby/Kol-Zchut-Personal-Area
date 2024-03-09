@@ -4,25 +4,19 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import Image from "next/image";
 import Heading from "@/app/components/Heading/Heading";
-import {IncomeTax, VacationDays, LastSalary} from "../arrow";
-
+import { IncomeTax, VacationDays, LastSalary } from "../arrow";
 
 export default function CheckAccordion({ checkList }) {
-  const [expanded, setExpanded] = useState([]);
+  const [expanded, setExpanded] = useState(null);
   const [options, setOptions] = useState(checkList.options);
 
   useEffect(() => {
     setOptions(checkList.options);
+    setExpanded(null);
   }, [checkList]);
 
   const handleToggle = (index) => {
-    const newExpanded = [...expanded];
-    if (newExpanded.includes(index)) {
-      newExpanded.splice(newExpanded.indexOf(index), 1);
-    } else {
-      newExpanded.push(index);
-    }
-    setExpanded(newExpanded);
+    expanded == index ? setExpanded(null) : setExpanded(index);
   };
 
   const handleCheckboxChange = (index) => {
@@ -54,7 +48,7 @@ export default function CheckAccordion({ checkList }) {
 
   return (
     <div>
-      <List>
+      <List sx={{ padding: 0 }}>
         {options.map((option, index) => (
           <div key={index}>
             <ListItem>
@@ -64,11 +58,12 @@ export default function CheckAccordion({ checkList }) {
                   onClick={() => handleCheckboxChange(index)}
                 />
               </ListItemIcon>
-                <Heading level={4} text={option.text} className={"textList"}></Heading>
-              {/*<h4>*/}
-              {/*  {option.text}{" "}*/}
-              {/*</h4>*/}
-              {expanded.includes(index) ? (
+              <Heading
+                level={4}
+                text={option.text}
+                className={"textList"}
+              ></Heading>
+              {expanded == index ? (
                 <ExpandLessIcon
                   onClick={() => handleToggle(index)}
                   className="cursor"
@@ -78,19 +73,11 @@ export default function CheckAccordion({ checkList }) {
                   onClick={() => handleToggle(index)}
                   className="cursor"
                 />
-                
               )}
-            
             </ListItem>
-              <Collapse
-                in={expanded.includes(index)}
-                timeout="auto"
-                unmountOnExit
-              >
-                <h4 className="checkListOptionExp">{option.explanation}</h4>
-                
-                
-              </Collapse>   
+            <Collapse in={expanded == index} timeout="auto" unmountOnExit>
+              <h4 className="checkListOptionExp">{option.explanation}</h4>
+            </Collapse>
           </div>
         ))}
       </List>

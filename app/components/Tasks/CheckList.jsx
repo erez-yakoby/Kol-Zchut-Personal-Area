@@ -5,10 +5,7 @@ import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 
 const CheckList = ({ checkList }) => {
-  const handleChange = (event) => {
-    console.log(event.target);
-    console.log(event.target.id);
-  };
+  const handleChange = (event) => {};
 
 
   return (

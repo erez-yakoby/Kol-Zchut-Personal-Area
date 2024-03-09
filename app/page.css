@@ -25,11 +25,12 @@
 
 h1 {
   font-size: 107px;
-  /*font-weight: 300;*/
+  font-weight: 400;
   margin: 0;
   font-family: "Sunday_Medium";
   line-height: 80%;
   color: #231f20;
+  white-space: pre-wrap;
 }
 
 h4 {
@@ -41,16 +42,18 @@ h4 {
   line-height: 129.4%;
   color: #231f20;
   /* font-weight: 400; */
+  white-space: pre-wrap;
 }
 
-h3{
-    font-size: 17px;
-    padding: 0;
-    margin: 0;
-    font-family: "Assistant_Regualr";
-    line-height: 129.4%;
-    color: #231f20;
-    /* font-weight: 400; */
+h3 {
+  font-size: 17px;
+  padding: 0;
+  margin: 0;
+  font-family: "Assistant_Regualr";
+  line-height: 129.4%;
+  color: #231f20;
+  /* font-weight: 400; */
+  white-space: pre-wrap;
 }
 
 .textList {
@@ -62,6 +65,7 @@ h3{
   color: #231f20;
   letter-spacing: -0.6px;
   /* font-weight: 400; */
+  white-space: pre-wrap;
 }
 
 h5 {
@@ -72,6 +76,7 @@ h5 {
   line-height: 129.438%;
   font-family: "Assistant_Regualr";
   color: #231f20;
+  white-space: pre-wrap;
 }
 
 h6 {
@@ -81,15 +86,16 @@ h6 {
   margin: 0;
   font-family: "Assistant_Bold";
   color: #231f20;
+  white-space: pre-wrap;
 }
 
 .finishingSlideTitle {
-    font-size: 110px;
-    font-weight: 600;
-    margin: 0;
-    font-family: "Sunday_Normal";
-    line-height: 80%;
-    color: #f6efe5;
+  font-size: 110px;
+  font-weight: 600;
+  margin: 0;
+  font-family: "Sunday_Normal";
+  line-height: 80%;
+  color: #f6efe5;
 }
 
 .finishingSlideNextButtonText {
@@ -112,7 +118,7 @@ h6 {
   border: 1px solid #000;
   padding: 15px 56px;
   cursor: pointer;
-  }
+}
 
 .active {
   background: #a26af4;
@@ -167,9 +173,9 @@ h6 {
 .gap-30 {
   gap: 30px;
 }
-.gap-400{
-  gap: 400px
-}
+/* .gap-400 {
+  gap: 200px;
+} */
 
 .height70 {
   height: 70%;
@@ -253,28 +259,27 @@ h6 {
   position: relative;
   height: 100%;
   box-sizing: border-box;
-  padding-top: 30px;
+  padding-top: 20px;
   padding-right: 30px;
   padding-left: 30px;
-  padding-bottom: 0px;
-  gap: 35px;
-  /* background-color: #a26af4; */
+  gap: 40px;
 }
 
 .bottomBar {
-  position:fixed;
+  position: fixed;
   bottom: 0;
   width: 100%;
   padding-right: 80px;
   padding-bottom: 10px;
-  align-items: center;
   display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 200px;
 }
 
 .logo-container {
   display: flex;
   gap: 12px;
-  margin-left: 190px; 
 }
 
 .sliderTop {
@@ -289,10 +294,12 @@ h6 {
   align-items: center;
   gap: 16px;
   height: 15px;
+  margin-top: 0;
+  margin-bottom: -30px;
 }
 
 .slideContent {
-  max-width: 650px;
+  max-width: 671px;
   /* height: 600px; */
   margin-right: 170px;
   gap: 36px;
@@ -301,8 +308,26 @@ h6 {
 
 .tasksSection {
   display: flex;
-  flex-direction: column;
-  gap: 27px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  row-gap: 30px;
+}
+
+.task {
+  flex: 0 0 50%;
+}
+
+.singleSelectionFullWidth {
+  gap: 10px;
+}
+
+.radioGroupFullWidth {
+  gap: 30px;
+}
+
+.css-1q04gal-MuiDateCalendar-root {
+  background-color: #f6efe5;
 }
 
 .finishingSlide {
@@ -341,7 +366,6 @@ h6 {
 .nextSlideWestIcon:hover {
   transition: 700ms;
   transform: translatex(-10px);
-
 }
 
 .nextSlideCheckIcon:hover {
@@ -353,7 +377,6 @@ h6 {
   font-family: "Assistant_Regualr";
   transition: font-family 700ms ease;
 }
-
 
 .creditsBar {
   display: flex;
@@ -406,29 +429,28 @@ h6 {
   font-weight: 100;
 }
 
-.singleselection .MuiRadio-root {
+.singleselectionText .MuiRadio-root {
   font-family: "Assistant_Regualr";
 }
 
-.css-1vooibu-MuiSvgIcon-root:hover{
+.css-1vooibu-MuiSvgIcon-root:hover {
   transition: 700ms;
   transform: translatex(10px);
 }
 
-.css-1pbdpej-MuiButtonBase-root-MuiIconButton-root{
+.css-1pbdpej-MuiButtonBase-root-MuiIconButton-root {
   background-color: none;
-
 }
 
 .css-1pbdpej-MuiButtonBase-root-MuiIconButton-root:hover {
   background-color: #f6efe5;
 }
 
-.css-o9k5xi-MuiInputBase-root-MuiOutlinedInput-root{
+.css-o9k5xi-MuiInputBase-root-MuiOutlinedInput-root {
   font-family: "Assistant_Regualr";
 }
-.css-1jy569b-MuiFormLabel-root-MuiInputLabel-root{
-font-family: "Assistant_Regualr";
+.css-1jy569b-MuiFormLabel-root-MuiInputLabel-root {
+  font-family: "Assistant_Regualr";
 }
 /* ################ Old Components ################ */
 
