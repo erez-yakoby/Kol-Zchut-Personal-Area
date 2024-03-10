@@ -119,13 +119,12 @@ h6 {
   padding: 15px 56px;
   cursor: pointer;
 }
-
 .active {
   background: #a26af4;
   border-radius: 30px;
 }
 
-.questionBtn:hover {
+.questionBtn:not(.active):hover  {
   background: rgba(162, 106, 244, 0.8);
   transition: 700ms;
 }
@@ -432,6 +431,7 @@ h6 {
 .singleselectionText .MuiRadio-root {
   font-family: "Assistant_Regualr";
 }
+
 
 .css-1vooibu-MuiSvgIcon-root:hover {
   transition: 700ms;
