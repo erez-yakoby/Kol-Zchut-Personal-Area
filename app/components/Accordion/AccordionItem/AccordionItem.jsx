@@ -20,8 +20,8 @@ const AccordionItem = ({ tab, isOpen, onClick, handleNextTab }) => {
         <div className="accordionBanner">
           {tab.id == 0 ? (
             <>
-              <h5 className="verticalWriting">זכותך</h5>
-              <h3 className="verticalWriting">{tab.name}</h3>
+              <h6 className="verticalWriting">זכותך</h6>
+              <h3 className="verticalWriting notbold">{tab.name}</h3>
             </>
           ) : (
             <>
