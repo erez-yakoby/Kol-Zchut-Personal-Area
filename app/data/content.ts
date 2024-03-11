@@ -356,6 +356,7 @@ export const ProcessesContent: Array<process> = [
             id: 2,
             title: "אתה בן 20-67?",
             description: "",
+            photo: "Arrow1",
             tasks: [
               {
                 id: 1,
@@ -405,7 +406,7 @@ export const ProcessesContent: Array<process> = [
           },
           {
             id: 5,
-            title: "המעסיק שלך אינו תושב ישראל?",
+            title: "המעסיק שלך אינו תושב ישראל/אתה עובד בשירות מדינה אחרת?",
             description: "",
             tasks: [
               {
@@ -440,7 +441,7 @@ export const ProcessesContent: Array<process> = [
           },
           {
             id: 7,
-            title: "זכית! איזה כיף, אתה זכאי לדמי אבטלה",
+            title: "אתה זכאי לדמי אבטלה",
             description: "",
             tasks: null,
             progressPerc: 0,
@@ -589,6 +590,7 @@ export const ProcessesContent: Array<process> = [
             title: "מתי תצטרך להגיע ללשכה?",
             description:
               "במסגרת חתימה על דמי אבטלה נדרש להגיע מידי שבוע ללשכת התעסוקה ולהתייצב בעמדות ההחתמה. ההגעה ללשכה צריכה להתבצע ביום קבוע מידי שבוע לאורך תקופת דמי האבטלה שאתה זכאי לה. אנשים מעל גיל 50, נדרשים להגיע פעם בחודש.",
+            photo: "LoopArrow",
             tasks: [
               {
                 id: 3,
@@ -635,8 +637,8 @@ export const ProcessesContent: Array<process> = [
         ],
         finishingSlide: {
           title: "סיימת את כל השלבים במדריך לפיטורים",
-          arrowAnimationType: "arrow5",
-          description: "",
+          // arrowAnimationType: "arrow5",
+          description: "איך ממשיכים מפה? הנה כמה מדריכים שיכולים לעניין אותך\n המדריך לחיפוש עבודה וניהול קריירה\n המדריך להחזרי מס\n המדריך לפנסיה וחיסכון לטווח ארוך",
         },
       },
     ],
