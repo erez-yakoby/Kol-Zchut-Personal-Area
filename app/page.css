@@ -227,7 +227,7 @@ h6 {
 
 .regDiv {
   flex-shrink: 1;
-  width: 72px;
+  width: 68px;
   border-left: 2px solid black;
   transition: flex 0.3s linear;
   padding-top: 30px;
@@ -319,9 +319,9 @@ h6 {
 }
 
 .slideContent {
-  max-width: 671px;
+  max-width: 600px;
   /* height: 600px; */
-  margin-right: 170px;
+  margin-right: 120px;
   gap: 36px;
   /* background-color: aquamarine; */
 }

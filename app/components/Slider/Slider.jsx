@@ -276,7 +276,7 @@ const Slider = ({ tabContent, nextTabHandler }) => {
   };
   const renderActiveSlide = () => {
     return (
-      <div className="flexRow rtl">
+      <div className="flexRow rtl ">
         {renderActiveSlideContent()}
         {renderSideArrowComponent()}
       </div>

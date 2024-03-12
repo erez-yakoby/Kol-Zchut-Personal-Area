@@ -426,7 +426,7 @@ export const ProcessesContent: Array<process> = [
           },
           {
             id: 5,
-            title: "המעסיק שלך אינו תושב ישראל/אתה עובד בשירות מדינה אחרת?",
+            title: "המעסיק שלך אינו תושב ישראל / אתה עובד בשירות מדינה אחרת?",
             description: "",
             tasks: [
               {
