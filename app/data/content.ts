@@ -40,6 +40,7 @@ type task = {
   id: Number;
   taskType: TaskType;
   taskObj: question | checkList | dateChoice | textFiller;
+  isFinished: boolean;
 };
 
 export enum TaskType {
@@ -59,6 +60,7 @@ type question = {
   text: String;
   numOfAnswers: Number;
   possibleAnswers: Array<String>;
+  selectedAnswer: Number | null;
 };
 
 type SingleSelection = {
@@ -97,7 +99,7 @@ export const ProcessesContent: Array<process> = [
       {
         id: 0,
         progressPerc: 0,
-        name: "זכותך לדעת זכותך לממש",
+        name: "זכותך לדעת, זכותך לממש",
         iconPath: "",
         slides: [
           {
@@ -114,7 +116,9 @@ export const ProcessesContent: Array<process> = [
                   text: "",
                   numOfAnswers: 2,
                   possibleAnswers: ["יאללה התחלתי", "המשך תהליך קיים"],
+                  selectedAnswer: null,
                 },
+                isFinished: false,
               },
             ],
             progressPerc: 0,
@@ -132,7 +136,9 @@ export const ProcessesContent: Array<process> = [
                   text: "",
                   numOfAnswers: 2,
                   possibleAnswers: ["נקבה", "זכר"],
+                  selectedAnswer: null,
                 },
+                isFinished: false,
               },
             ],
             progressPerc: 0,
@@ -159,7 +165,9 @@ export const ProcessesContent: Array<process> = [
                   text: "",
                   numOfAnswers: 2,
                   possibleAnswers: ["אני התפטרתי", "פיטרו אותי"],
+                  selectedAnswer: null,
                 },
+                isFinished: false,
               },
             ],
             progressPerc: 0,
@@ -177,6 +185,7 @@ export const ProcessesContent: Array<process> = [
                 taskObj: {
                   text: "תאריך התפטרות",
                 },
+                isFinished: false,
               },
             ],
             progressPerc: 0,
@@ -207,6 +216,7 @@ export const ProcessesContent: Array<process> = [
                     },
                   ],
                 },
+                isFinished: false,
               },
               {
                 id: 4,
@@ -214,6 +224,7 @@ export const ProcessesContent: Array<process> = [
                 taskObj: {
                   text: "הזן את תאריך תחילת העבודה",
                 },
+                isFinished: false,
               },
               {
                 id: 5,
@@ -222,6 +233,7 @@ export const ProcessesContent: Array<process> = [
                   text: "ימי הודעה מוקדמת שנותרו:",
                   filling: "36",
                 },
+                isFinished: false,
               },
             ],
             progressPerc: 0,
@@ -279,6 +291,7 @@ export const ProcessesContent: Array<process> = [
                     },
                   ],
                 },
+                isFinished: false,
               },
             ],
             progressPerc: 0,
@@ -328,6 +341,7 @@ export const ProcessesContent: Array<process> = [
                     },
                   ],
                 },
+                isFinished: false,
               },
             ],
             progressPerc: 0,
@@ -365,7 +379,9 @@ export const ProcessesContent: Array<process> = [
                   text: "",
                   numOfAnswers: 2,
                   possibleAnswers: ["כן", "לא"],
+                  selectedAnswer: null,
                 },
+                isFinished: false,
               },
             ],
             progressPerc: 0,
@@ -382,7 +398,9 @@ export const ProcessesContent: Array<process> = [
                   text: "",
                   numOfAnswers: 2,
                   possibleAnswers: ["כן", "לא"],
+                  selectedAnswer: null,
                 },
+                isFinished: false,
               },
             ],
             progressPerc: 0,
@@ -399,7 +417,9 @@ export const ProcessesContent: Array<process> = [
                   text: "",
                   numOfAnswers: 2,
                   possibleAnswers: ["כן", "לא"],
+                  selectedAnswer: null,
                 },
+                isFinished: false,
               },
             ],
             progressPerc: 0,
@@ -416,7 +436,9 @@ export const ProcessesContent: Array<process> = [
                   text: "",
                   numOfAnswers: 2,
                   possibleAnswers: ["כן", "לא"],
+                  selectedAnswer: null,
                 },
+                isFinished: false,
               },
             ],
             progressPerc: 0,
@@ -434,7 +456,9 @@ export const ProcessesContent: Array<process> = [
                   text: "",
                   numOfAnswers: 2,
                   possibleAnswers: ["כן", "לא"],
+                  selectedAnswer: null,
                 },
+                isFinished: false,
               },
             ],
             progressPerc: 0,
@@ -472,7 +496,9 @@ export const ProcessesContent: Array<process> = [
                   text: "",
                   numOfAnswers: 2,
                   possibleAnswers: ["רישום מקוון", "הגעה פיזית ללשכה"],
+                  selectedAnswer: null,
                 },
+                isFinished: false,
               },
             ],
             progressPerc: 0,
@@ -498,6 +524,7 @@ export const ProcessesContent: Array<process> = [
                   text: "עלייך להגיע ללשכה עד לתאריך:",
                   filling: "22.03.2024",
                 },
+                isFinished: false,
               },
             ],
             progressPerc: 0,
@@ -552,6 +579,7 @@ export const ProcessesContent: Array<process> = [
                     },
                   ],
                 },
+                isFinished: false,
               },
               {
                 id: 3,
@@ -573,6 +601,7 @@ export const ProcessesContent: Array<process> = [
                     },
                   ],
                 },
+                isFinished: false,
               },
               {
                 id: 3,
@@ -581,6 +610,7 @@ export const ProcessesContent: Array<process> = [
                   text: "ימי אבטלה שאתה זכאי להם:",
                   filling: "20",
                 },
+                isFinished: false,
               },
             ],
             progressPerc: 0,
@@ -630,6 +660,7 @@ export const ProcessesContent: Array<process> = [
                     },
                   ],
                 },
+                isFinished: false,
               },
             ],
             progressPerc: 0,
@@ -638,7 +669,9 @@ export const ProcessesContent: Array<process> = [
         finishingSlide: {
           title: "סיימת את כל השלבים במדריך לפיטורים",
           // arrowAnimationType: "arrow5",
-          description: "איך ממשיכים מפה? הנה כמה מדריכים שיכולים לעניין אותך\n המדריך לחיפוש עבודה וניהול קריירה\n המדריך להחזרי מס\n המדריך לפנסיה וחיסכון לטווח ארוך",
+          description:
+            "איך ממשיכים מפה? הנה כמה מדריכים שיכולים לעניין אותך\n המדריך לחיפוש עבודה וניהול קריירה\n המדריך להחזרי מס\n המדריך לפנסיה וחיסכון לטווח ארוך",
+          arrowAnimationType: "",
         },
       },
     ],

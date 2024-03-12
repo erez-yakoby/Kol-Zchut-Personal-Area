@@ -24,7 +24,7 @@
 } */
 
 h1 {
-  font-size: 107px;
+  font-size: 95px;
   font-weight: 400;
   margin: 0;
   font-family: "Sunday_Medium";
@@ -34,7 +34,7 @@ h1 {
 }
 
 h4 {
-  font-size: 23px;
+  font-size: 21px;
   font-weight: 100;
   padding: 0;
   margin: 0;
@@ -57,7 +57,7 @@ h3 {
 }
 
 .textList {
-  font-size: 27px;
+  font-size: 26px;
   padding: 0;
   margin: 0;
   font-family: "Sunday_Normal";
@@ -70,7 +70,7 @@ h3 {
 
 h5 {
   text-align: right;
-  font-size: 20px;
+  font-size: 19px;
   font-style: normal;
   /* font-weight: 400; */
   line-height: 129.438%;
@@ -78,16 +78,19 @@ h5 {
   color: #231f20;
   white-space: pre-wrap;
   font-weight: 400;
+  padding: 0;
+  margin: 0;
 }
 
 h6 {
-  font-size: 20px;
+  font-size: 19px;
   font-weight: 100;
   padding: 0;
   margin: 0;
   font-family: "Assistant_Bold";
   color: #231f20;
   white-space: pre-wrap;
+  line-height: 129.438%;
 }
 
 .finishingSlideTitle {
@@ -110,17 +113,18 @@ h6 {
   /* font-weight: 400; */
 }
 
-.notbold{
+.notbold {
   font-weight: 400;
 }
+
 /* ################ Buttons ################ */
 
 .questionBtn {
   background-color: #f6efe5;
   border-radius: 30px;
-  min-width: 144px;
+  min-width: 140px;
   border: 1px solid #000;
-  padding: 15px 56px;
+  padding: 14px 54px;
   cursor: pointer;
 }
 .active {
@@ -128,7 +132,7 @@ h6 {
   border-radius: 30px;
 }
 
-.questionBtn:not(.active):hover  {
+.questionBtn:not(.active):hover {
   background: rgba(162, 106, 244, 0.8);
   transition: 700ms;
 }
@@ -177,7 +181,7 @@ h6 {
   gap: 30px;
 }
 /* .gap-400 {
-  gap: 200px;
+  gap: 100px;
 } */
 
 .height70 {
@@ -223,7 +227,7 @@ h6 {
 
 .regDiv {
   flex-shrink: 1;
-  width: 80px;
+  width: 72px;
   border-left: 2px solid black;
   transition: flex 0.3s linear;
   padding-top: 30px;
@@ -244,6 +248,13 @@ h6 {
   align-items: center;
   flex-direction: column;
   gap: 27px;
+}
+
+.accordionFirstTabBanner {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 8px;
 }
 
 .verticalWriting {
@@ -277,7 +288,7 @@ h6 {
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 300px;
+  gap: 220px;
 }
 
 .logo-container {
@@ -289,6 +300,12 @@ h6 {
   align-items: center;
   gap: 25px;
   padding-right: 35px;
+}
+
+.sliderTopFirstTab {
+  align-items: center;
+  padding-right: 35px;
+  gap: 10px;
 }
 
 .slidesStepper {
@@ -335,7 +352,6 @@ h6 {
 }
 
 .finishingSlide {
-  
   background-color: #a26af4;
   /* animation: fillScreen 1.5s ease-out forwards; */
 }
@@ -364,6 +380,13 @@ h6 {
   cursor: pointer;
   gap: 5px;
   background-color: #f6efe5;
+}
+
+.disabledButton {
+  opacity: 30%;
+  cursor: auto;
+  pointer-events: none;
+  transition: 0.01s;
 }
 
 .nextSlideButtonFinishingSlide {
@@ -450,7 +473,6 @@ h6 {
 .singleselectionText .MuiRadio-root {
   font-family: "Assistant_Regualr";
 }
-
 
 .css-1vooibu-MuiSvgIcon-root:hover {
   transition: 700ms;

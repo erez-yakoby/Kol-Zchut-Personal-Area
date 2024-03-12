@@ -3,6 +3,23 @@ import Slider from "../../Slider/Slider";
 import Image from "next/image";
 
 const AccordionItem = ({ tab, isOpen, onClick, handleNextTab }) => {
+  const renderBanner = () => {
+    return (
+      <>
+        {tab.id == 0 ? (
+          <div className="accordionFirstTabBanner">
+            <h6 className="verticalWriting">זכותך</h6>
+            <h3 className="verticalWriting notbold">{tab.name}</h3>
+          </div>
+        ) : (
+          <div className="accordionBanner">
+            <Image src={tab.iconPath} alt={tab.name} width={18} height={18} />
+            <h5 className="verticalWriting">{tab.name}</h5>
+          </div>
+        )}
+      </>
+    );
+  };
   return (
     <div
       className={
@@ -17,19 +34,7 @@ const AccordionItem = ({ tab, isOpen, onClick, handleNextTab }) => {
       {isOpen ? (
         <Slider tabContent={tab} nextTabHandler={handleNextTab} />
       ) : (
-        <div className="accordionBanner">
-          {tab.id == 0 ? (
-            <>
-              <h6 className="verticalWriting">זכותך</h6>
-              <h3 className="verticalWriting notbold">{tab.name}</h3>
-            </>
-          ) : (
-            <>
-              <Image src={tab.iconPath} alt={tab.name} width={18} height={18} />
-              <h5 className="verticalWriting">{tab.name}</h5>
-            </>
-          )}
-        </div>
+        renderBanner()
       )}
     </div>
   );

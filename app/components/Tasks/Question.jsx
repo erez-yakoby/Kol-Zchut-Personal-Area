@@ -2,15 +2,20 @@
 import React, { useState, useEffect } from "react";
 import { Button } from "@mui/material";
 
-const Question = ({ question }) => {
+const Question = ({ task, onClick }) => {
   const [active, setActive] = useState(null);
+  const question = task.taskObj;
 
   useEffect(() => {
-    setActive(null);
+    setActive(question.selectedAnswer);
   }, [question]);
 
   const handleButtonClick = (index) => {
-    setActive(index === active ? null : index);
+    const newSelected = index === active ? null : index;
+    setActive(newSelected);
+    question.selectedAnswer = newSelected;
+    task.isFinished = newSelected != null;
+    onClick();
   };
 
   const answers = question.possibleAnswers;

@@ -7,7 +7,7 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DesktopDatePicker } from "@mui/x-date-pickers/DesktopDatePicker";
 import Heading from "@/app/components/Heading/Heading";
 
-export default function DatePChooser({ task }) {
+export default function DatePChooser({ task, onSelect }) {
   const [value, setValue] = React.useState(dayjs());
 
   return (
@@ -16,7 +16,11 @@ export default function DatePChooser({ task }) {
       <LocalizationProvider dateAdapter={AdapterDayjs}>
         <DesktopDatePicker
           value={value}
-          onChange={(newValue) => setValue(newValue)}
+          onChange={(newValue) => {
+            setValue(newValue);
+            task.isFinished = true;
+            onSelect();
+          }}
           format="DD/MM/YYYY"
         />
       </LocalizationProvider>
