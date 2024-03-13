@@ -1,0 +1,20 @@
+.button {
+    transition: padding-right 0.2s ease;
+    position: relative;
+}
+.button:hover {
+    padding-right: 30px;
+}
+
+.icon {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    transition: opacity 0.2s ease;
+    opacity: 0;}
+
+    .icon:hover {
+    opacity: 1
+}
+

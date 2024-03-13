@@ -9,6 +9,7 @@ import { TaskType } from "@/app/data/content";
 import Image from "next/image";
 import MyStepper from "./MyStepper";
 import BottomBar from "./BottomBar";
+import ExpandingButton from "../ExpandingButton/ExpandingButton";
 
 import { LoopArrow, Arrow1, LittleArrowText, ArrowID } from "../arrow";
 import Heading from "@/app/components/Heading/Heading";
@@ -288,7 +289,7 @@ const Slider = ({ tabContent, nextTabHandler }) => {
 
   const renderFinishingSlide = () => {
     return (
-      <div className="flexRow rtl ">
+      <div className="flexRow rtl">
         {renderFinishingSlideContent()}
         <div className="sticky-bottom-left">
           {renderNextButton()}
@@ -299,6 +300,7 @@ const Slider = ({ tabContent, nextTabHandler }) => {
   const renderSliderBody = () => {
     return (
       <div className="sliderBody">
+
         {activeStep === slides.length
           ? renderFinishingSlide()
           : renderActiveSlide()}
@@ -315,6 +317,7 @@ const Slider = ({ tabContent, nextTabHandler }) => {
     <div className={sliderClassName}>
       {renderSliderHeader()}
       {renderSliderBody()}
+      <ExpandingButton text = {'צא ושמור'} iconType={'close'} className={'leaveAndSaveBtn'} textClassName={'leaveAndSaveBtnText'} onClick={setShouldDisplayLeavePopUp(true)}/>
       <BottomBar />
     </div>
   );

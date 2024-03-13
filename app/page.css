@@ -137,6 +137,54 @@ h6 {
   transition: 700ms;
 }
 
+.leaveAndSaveBtn {
+  background-color: #000;
+  border-radius: 30px;
+  border: 1px solid #000;
+  cursor: pointer;
+  position: fixed;
+  bottom: 60px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.leaveAndSaveBtn:hover {
+  background-color: #000;
+  border-radius: 30px;
+  border: 1px solid #000;
+  cursor: pointer;
+  position: fixed;
+  bottom: 60px;
+  right: 20px;
+  z-index: 1000;
+}
+
+
+.leaveAndSaveBtnText {
+  font-size: 21px;
+  font-weight: 100;
+  padding-left: 0;
+  margin: 0;
+  font-family: "Assistant_Regualr";
+  line-height: 129.4%;
+  color: #f6efe5;
+  /* font-weight: 400; */
+  white-space: pre-wrap;
+}
+
+
+
+  /*.active {*/
+/*  background: #a26af4;*/
+/*  border-radius: 30px;*/
+/*}*/
+
+/*.questionBtn:not(.active):hover {*/
+/*  background: rgba(162, 106, 244, 0.8);*/
+/*  transition: 700ms;*/
+/*}*/
+
+
 /* ################ Main Page ################ */
 .fullScreen {
   position: absolute;
@@ -366,8 +414,18 @@ h6 {
 }
 
 .finishingSlide {
-  background-color: #a26af4;
-  /* animation: fillScreen 1.5s ease-out forwards; */
+  background: linear-gradient(to bottom, #a26af4, #a26af4);
+  animation: changeBackground 0.5s forwards; /* Animation to change background color */
+  transition: background-color 0.05s ease;
+}
+
+@keyframes changeBackground {
+  0% {
+    height: 0; /* Start with height 0 */
+  }
+  100% {
+    height: 100%; /* End with full height */
+  }
 }
 
 
