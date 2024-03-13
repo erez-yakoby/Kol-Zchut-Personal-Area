@@ -193,14 +193,24 @@ const Slider = ({ tabContent, nextTabHandler }) => {
   };
 
   const renderFinishingSlideContent = () => {
-    const animationClassName = tabContent.finishingSlide.arrowAnimationType === "arrow1" ? "animationArrowWrapper1" : "animationArrowWrapper2";
+    const animationClassName =
+      tabContent.finishingSlide.arrowAnimationType === "arrow1"
+        ? "animationArrowWrapper1"
+        : "animationArrowWrapper2";
     const animationData = getArrowAnimationForFinishingSlideContent(
       tabContent.finishingSlide.arrowAnimationType
     );
 
-
-      const animationHeight = tabContent.finishingSlide.arrowAnimationType === "arrow4" || tabContent.finishingSlide.arrowAnimationType === "arrow5" ? '1000px' : null
-      const animationWidth = tabContent.finishingSlide.arrowAnimationType === "arrow4" || tabContent.finishingSlide.arrowAnimationType === "arrow5" ? '1000px' : null
+    const animationHeight =
+      tabContent.finishingSlide.arrowAnimationType === "arrow4" ||
+      tabContent.finishingSlide.arrowAnimationType === "arrow5"
+        ? "1000px"
+        : null;
+    const animationWidth =
+      tabContent.finishingSlide.arrowAnimationType === "arrow4" ||
+      tabContent.finishingSlide.arrowAnimationType === "arrow5"
+        ? "1000px"
+        : null;
 
     return (
       <div className="slideContent flexCol">
@@ -214,9 +224,12 @@ const Slider = ({ tabContent, nextTabHandler }) => {
           level={2}
           className={"finishingSlideTitle"}
         />
-        <LottieAnimation animationData={animationData} className = {animationClassName}
-                         height = {animationHeight} width = {animationWidth}/>
-
+        <LottieAnimation
+          animationData={animationData}
+          className={animationClassName}
+          height={animationHeight}
+          width={animationWidth}
+        />
       </div>
     );
   };
@@ -226,6 +239,9 @@ const Slider = ({ tabContent, nextTabHandler }) => {
     if (activeStep === slides.length - 1) {
       return "סיים";
     } else if (activeStep === slides.length) {
+      if (tabContent.id == 5) {
+        return "חזור לדף הבית";
+      }
       return "נמשיך לשלב הבא?";
     } else {
       return "הבא";
@@ -253,17 +269,16 @@ const Slider = ({ tabContent, nextTabHandler }) => {
         ? "finishingSlideNextButtonText"
         : "nextbutton";
     return (
-        <div>
-          <button className={buttonClassName} onClick={handleNextButtonClicked}>
-            {renderNextButtonIcon()}
-            <Heading
-                text={nextButtonText}
-                level={4}
-                className={buttonTextClassName}
-            />
-          </button>
-        </div>
-
+      <div>
+        <button className={buttonClassName} onClick={handleNextButtonClicked}>
+          {renderNextButtonIcon()}
+          <Heading
+            text={nextButtonText}
+            level={4}
+            className={buttonTextClassName}
+          />
+        </button>
+      </div>
     );
   };
 
@@ -300,59 +315,59 @@ const Slider = ({ tabContent, nextTabHandler }) => {
     return (
       <div className="flexRow rtl">
         {renderFinishingSlideContent()}
-        <div className="sticky-bottom-left">
-          {renderNextButton()}
-        </div>
+        <div className="sticky-bottom-left">{renderNextButton()}</div>
       </div>
     );
   };
 
   const RenderLeavePopUp = () => {
     return (
-<div className="leavePopWrapperDiv">
-  <PopUpBanner
-      buttonText={"העתק לינק"}
-      subHeadingText={"על מנת לאפשר לך לצאת מהאתר ולחזור בדיוק לנקודה\nשבה עצרת, שמור את הלינק במקום נגיש ובכל רגע נתון\nתוכל לחזור ולהמשיך בתהליך."}
-      headingText={"רוצה להיות מסוגל להמשיך מאיפה שהפסקת?"}
-      onClose={() => setShouldDisplayLeavePopUp(false)}
-      className = {"leavePopUpBanner"}
-  />
-
-</div>
-
-
+      <div className="leavePopWrapperDiv">
+        <PopUpBanner
+          buttonText={"העתק לינק"}
+          subHeadingText={
+            "על מנת לאפשר לך לצאת מהאתר ולחזור בדיוק לנקודה\nשבה עצרת, שמור את הלינק במקום נגיש ובכל רגע נתון\nתוכל לחזור ולהמשיך בתהליך."
+          }
+          headingText={"רוצה להיות מסוגל להמשיך מאיפה שהפסקת?"}
+          onClose={() => setShouldDisplayLeavePopUp(false)}
+          className={"leavePopUpBanner"}
+        />
+      </div>
     );
-  }
+  };
   const renderSliderBody = () => {
-
     return (
-        <div className="sliderBody">
-          {shouldDisplayLeavePopUp ? (
-              RenderLeavePopUp()
-          ) : (
-              <>
-                {activeStep === slides.length ? (
-                    renderFinishingSlide()
-                ) : (
-                    renderActiveSlide()
-                )}
-              </>
-          )}
-        </div>
+      <div className="sliderBody">
+        {shouldDisplayLeavePopUp ? (
+          RenderLeavePopUp()
+        ) : (
+          <>
+            {activeStep === slides.length
+              ? renderFinishingSlide()
+              : renderActiveSlide()}
+          </>
+        )}
+      </div>
     );
   };
 
-  const sliderClassName =
-      shouldDisplayLeavePopUp ? "slider flexCol" :
-          (activeStep === slides.length
-      ? "slider flexCol finishingSlide"
-      : "slider flexCol");
+  const sliderClassName = shouldDisplayLeavePopUp
+    ? "slider flexCol"
+    : activeStep === slides.length
+    ? "slider flexCol finishingSlide"
+    : "slider flexCol";
 
   return (
     <div className={sliderClassName}>
       {renderSliderHeader()}
       {renderSliderBody()}
-      <ExpandingButton text = {'צא ושמור'} iconType={'close'} className={'leaveAndSaveBtn'} textClassName={'leaveAndSaveBtnText'} onClick={() => setShouldDisplayLeavePopUp(true)}/>
+      <ExpandingButton
+        text={"צא ושמור"}
+        iconType={"close"}
+        className={"leaveAndSaveBtn"}
+        textClassName={"leaveAndSaveBtnText"}
+        onClick={() => setShouldDisplayLeavePopUp(true)}
+      />
       <BottomBar />
     </div>
   );
