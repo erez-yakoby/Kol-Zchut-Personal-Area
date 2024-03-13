@@ -7,7 +7,7 @@ const MyStepper = ({ slides, activeStep, handleBack }) => {
   return (
     <div className="slidesStepper">
       {activeStep !== 0 && (
-        <IconButton onClick={handleBack} size="medium" sx={{ color: "black" }}>
+        <IconButton onClick={handleBack} size="medium" sx={{ color: "black" }} disableRipple>
           <EastIcon fontSize="inherit" />
         </IconButton>
       )}

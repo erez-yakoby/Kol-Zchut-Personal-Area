@@ -243,14 +243,17 @@ const Slider = ({ tabContent, nextTabHandler }) => {
         ? "finishingSlideNextButtonText"
         : "nextbutton";
     return (
-      <button className={buttonClassName} onClick={handleNextButtonClicked}>
-        {renderNextButtonIcon()}
-        <Heading
-          text={nextButtonText}
-          level={4}
-          className={buttonTextClassName}
-        />
-      </button>
+        <div>
+          <button className={buttonClassName} onClick={handleNextButtonClicked}>
+            {renderNextButtonIcon()}
+            <Heading
+                text={nextButtonText}
+                level={4}
+                className={buttonTextClassName}
+            />
+          </button>
+        </div>
+
     );
   };
 
@@ -285,9 +288,11 @@ const Slider = ({ tabContent, nextTabHandler }) => {
 
   const renderFinishingSlide = () => {
     return (
-      <div className="flexCol rtl">
+      <div className="flexRow rtl ">
         {renderFinishingSlideContent()}
-        {renderNextButton()}
+        <div className="sticky-bottom-left">
+          {renderNextButton()}
+        </div>
       </div>
     );
   };

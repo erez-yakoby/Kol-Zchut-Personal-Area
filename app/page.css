@@ -147,6 +147,13 @@ h6 {
 }
 
 /* ################ Common uses ################ */
+.sticky-bottom-left {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding-bottom: 6%;
+  padding-left: 5%;
+}
 .flexRow {
   display: flex;
   flex-direction: row;
@@ -223,6 +230,7 @@ h6 {
   flex-grow: 8;
   border-left: 2px solid black;
   transition: flex 0.3s linear;
+  overflow: hidden;
 }
 
 .regDiv {
@@ -231,6 +239,7 @@ h6 {
   border-left: 2px solid black;
   transition: flex 0.3s linear;
   padding-top: 30px;
+  overflow: hidden;
 }
 
 .finishedDiv {
@@ -277,6 +286,7 @@ h6 {
   padding-right: 30px;
   padding-left: 30px;
   gap: 40px;
+  overflow: hidden;
 }
 
 .bottomBar {
@@ -284,18 +294,20 @@ h6 {
   bottom: 0;
   width: 78%;
   padding-right: 80px;
-  padding-bottom: 10px;
+  padding-bottom: 30px;
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 220px;
   justify-content: space-between;
+  overflow: hidden;
 
 }
 
 .logo-container {
   display: flex;
   gap: 12px;
+  padding-left: 3%;
 }
 
 .sliderTop {
