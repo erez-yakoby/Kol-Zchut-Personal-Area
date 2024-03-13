@@ -34,6 +34,7 @@ const Slider = ({ tabContent, nextTabHandler }) => {
   const slides = tabContent.slides;
   const [activeStep, setActiveStep] = useState(0);
   const [isNextDisabled, setIsNextDisabled] = useState(true);
+  const [shouldDisplayLeavePopUp, setShouldDisplayLeavePopUp] = useState(false);
 
   useEffect(() => {
     setActiveStep(0);
@@ -317,7 +318,7 @@ const Slider = ({ tabContent, nextTabHandler }) => {
     <div className={sliderClassName}>
       {renderSliderHeader()}
       {renderSliderBody()}
-      <ExpandingButton text = {'צא ושמור'} iconType={'close'} className={'leaveAndSaveBtn'} textClassName={'leaveAndSaveBtnText'} onClick={setShouldDisplayLeavePopUp(true)}/>
+      <ExpandingButton text = {'צא ושמור'} iconType={'close'} className={'leaveAndSaveBtn'} textClassName={'leaveAndSaveBtnText'} onClick={() => setShouldDisplayLeavePopUp(true)}/>
       <BottomBar />
     </div>
   );
