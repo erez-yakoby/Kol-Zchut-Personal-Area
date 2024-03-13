@@ -11,9 +11,8 @@ const LottieAnimation = (props) => {
     },
   };
 
-
   return (
-    <div>
+    <div className={props.className}>
       <Lottie options={defaultOptions} height={props.height} width={props.width}/>
     </div>
   );

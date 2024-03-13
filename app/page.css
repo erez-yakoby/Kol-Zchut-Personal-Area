@@ -356,6 +356,16 @@ h6 {
   height: 18px;
 }
 
+.animationArrowWrapper2 {
+ position: relative ;
+  top: -200px ;
+  right : 300px ;
+}
+
+.animationArrowWrapper1 {
+  position : absolute;
+}
+/*}*/
 /* ################ Slider ################ */
 
 .slider {
@@ -387,7 +397,7 @@ h6 {
 .logo-container {
   display: flex;
   gap: 12px;
-  padding-left: 3%;
+  padding-left: 8%;
 }
 
 .sliderTop {

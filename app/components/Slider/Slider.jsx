@@ -193,9 +193,15 @@ const Slider = ({ tabContent, nextTabHandler }) => {
   };
 
   const renderFinishingSlideContent = () => {
+    const animationClassName = tabContent.finishingSlide.arrowAnimationType === "arrow1" ? "animationArrowWrapper1" : "animationArrowWrapper2";
     const animationData = getArrowAnimationForFinishingSlideContent(
       tabContent.finishingSlide.arrowAnimationType
     );
+
+
+      const animationHeight = tabContent.finishingSlide.arrowAnimationType === "arrow4" || tabContent.finishingSlide.arrowAnimationType === "arrow5" ? '1000px' : null
+      const animationWidth = tabContent.finishingSlide.arrowAnimationType === "arrow4" || tabContent.finishingSlide.arrowAnimationType === "arrow5" ? '1000px' : null
+
     return (
       <div className="slideContent flexCol">
         <MyStepper
@@ -208,7 +214,9 @@ const Slider = ({ tabContent, nextTabHandler }) => {
           level={2}
           className={"finishingSlideTitle"}
         />
-        <LottieAnimation animationData={animationData} />
+        <LottieAnimation animationData={animationData} className = {animationClassName}
+                         height = {animationHeight} width = {animationWidth}/>
+
       </div>
     );
   };
