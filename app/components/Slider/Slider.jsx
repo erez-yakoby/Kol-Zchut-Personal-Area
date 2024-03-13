@@ -9,7 +9,8 @@ import { TaskType } from "@/app/data/content";
 import Image from "next/image";
 import MyStepper from "./MyStepper";
 import BottomBar from "./BottomBar";
-
+import ExpandingButton from "../ExpandingButton/ExpandingButton";
+import PopUpBanner from "../PopUpBanner/PopUpBanner";
 import { LoopArrow, Arrow1, LittleArrowText, ArrowID } from "../arrow";
 import Heading from "@/app/components/Heading/Heading";
 import LottieAnimation from "@/app/components/Animation/LottieAnimation";
@@ -33,6 +34,7 @@ const Slider = ({ tabContent, nextTabHandler }) => {
   const slides = tabContent.slides;
   const [activeStep, setActiveStep] = useState(0);
   const [isNextDisabled, setIsNextDisabled] = useState(true);
+  const [shouldDisplayLeavePopUp, setShouldDisplayLeavePopUp] = useState(false);
 
   useEffect(() => {
     setActiveStep(0);
@@ -191,9 +193,15 @@ const Slider = ({ tabContent, nextTabHandler }) => {
   };
 
   const renderFinishingSlideContent = () => {
+    const animationClassName = tabContent.finishingSlide.arrowAnimationType === "arrow1" ? "animationArrowWrapper1" : "animationArrowWrapper2";
     const animationData = getArrowAnimationForFinishingSlideContent(
       tabContent.finishingSlide.arrowAnimationType
     );
+
+
+      const animationHeight = tabContent.finishingSlide.arrowAnimationType === "arrow4" || tabContent.finishingSlide.arrowAnimationType === "arrow5" ? '1000px' : null
+      const animationWidth = tabContent.finishingSlide.arrowAnimationType === "arrow4" || tabContent.finishingSlide.arrowAnimationType === "arrow5" ? '1000px' : null
+
     return (
       <div className="slideContent flexCol">
         <MyStepper
@@ -206,7 +214,9 @@ const Slider = ({ tabContent, nextTabHandler }) => {
           level={2}
           className={"finishingSlideTitle"}
         />
-        <LottieAnimation animationData={animationData} />
+        <LottieAnimation animationData={animationData} className = {animationClassName}
+                         height = {animationHeight} width = {animationWidth}/>
+
       </div>
     );
   };
@@ -243,14 +253,17 @@ const Slider = ({ tabContent, nextTabHandler }) => {
         ? "finishingSlideNextButtonText"
         : "nextbutton";
     return (
-      <button className={buttonClassName} onClick={handleNextButtonClicked}>
-        {renderNextButtonIcon()}
-        <Heading
-          text={nextButtonText}
-          level={4}
-          className={buttonTextClassName}
-        />
-      </button>
+        <div>
+          <button className={buttonClassName} onClick={handleNextButtonClicked}>
+            {renderNextButtonIcon()}
+            <Heading
+                text={nextButtonText}
+                level={4}
+                className={buttonTextClassName}
+            />
+          </button>
+        </div>
+
     );
   };
 
@@ -285,31 +298,61 @@ const Slider = ({ tabContent, nextTabHandler }) => {
 
   const renderFinishingSlide = () => {
     return (
-      <div className="flexCol rtl">
+      <div className="flexRow rtl">
         {renderFinishingSlideContent()}
-        {renderNextButton()}
-      </div>
-    );
-  };
-  const renderSliderBody = () => {
-    return (
-      <div className="sliderBody">
-        {activeStep === slides.length
-          ? renderFinishingSlide()
-          : renderActiveSlide()}
+        <div className="sticky-bottom-left">
+          {renderNextButton()}
+        </div>
       </div>
     );
   };
 
+  const RenderLeavePopUp = () => {
+    return (
+<div className="leavePopWrapperDiv">
+  <PopUpBanner
+      buttonText={"העתק לינק"}
+      subHeadingText={"על מנת לאפשר לך לצאת מהאתר ולחזור בדיוק לנקודה\nשבה עצרת, שמור את הלינק במקום נגיש ובכל רגע נתון\nתוכל לחזור ולהמשיך בתהליך."}
+      headingText={"רוצה להיות מסוגל להמשיך מאיפה שהפסקת?"}
+      onClose={() => setShouldDisplayLeavePopUp(false)}
+      className = {"leavePopUpBanner"}
+  />
+
+</div>
+
+
+    );
+  }
+  const renderSliderBody = () => {
+
+    return (
+        <div className="sliderBody">
+          {shouldDisplayLeavePopUp ? (
+              RenderLeavePopUp()
+          ) : (
+              <>
+                {activeStep === slides.length ? (
+                    renderFinishingSlide()
+                ) : (
+                    renderActiveSlide()
+                )}
+              </>
+          )}
+        </div>
+    );
+  };
+
   const sliderClassName =
-    activeStep === slides.length
+      shouldDisplayLeavePopUp ? "slider flexCol" :
+          (activeStep === slides.length
       ? "slider flexCol finishingSlide"
-      : "slider flexCol";
+      : "slider flexCol");
 
   return (
     <div className={sliderClassName}>
       {renderSliderHeader()}
       {renderSliderBody()}
+      <ExpandingButton text = {'צא ושמור'} iconType={'close'} className={'leaveAndSaveBtn'} textClassName={'leaveAndSaveBtnText'} onClick={() => setShouldDisplayLeavePopUp(true)}/>
       <BottomBar />
     </div>
   );

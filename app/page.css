@@ -137,6 +137,54 @@ h6 {
   transition: 700ms;
 }
 
+.leaveAndSaveBtn {
+  background-color: #000;
+  border-radius: 30px;
+  border: 1px solid #000;
+  cursor: pointer;
+  position: fixed;
+  bottom: 60px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.leaveAndSaveBtn:hover {
+  background-color: #000;
+  border-radius: 30px;
+  border: 1px solid #000;
+  cursor: pointer;
+  position: fixed;
+  bottom: 60px;
+  right: 20px;
+  z-index: 1000;
+}
+
+
+.leaveAndSaveBtnText {
+  font-size: 21px;
+  font-weight: 100;
+  padding-left: 0;
+  margin: 0;
+  font-family: "Assistant_Regualr";
+  line-height: 129.4%;
+  color: #f6efe5;
+  /* font-weight: 400; */
+  white-space: pre-wrap;
+}
+
+
+
+  /*.active {*/
+/*  background: #a26af4;*/
+/*  border-radius: 30px;*/
+/*}*/
+
+/*.questionBtn:not(.active):hover {*/
+/*  background: rgba(162, 106, 244, 0.8);*/
+/*  transition: 700ms;*/
+/*}*/
+
+
 /* ################ Main Page ################ */
 .fullScreen {
   position: absolute;
@@ -146,7 +194,46 @@ h6 {
   left: 0;
 }
 
+.popUpBannerContentContainer {
+  display: flex;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 80px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 44px;
+  text-align: center;
+}
+
+.leavePopUpBanner {
+  width: 976px;
+  height: 600px;
+  border: 2px solid black;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.leavePopWrapperDiv {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.popUpBannerCloseIcon {
+  margin-left: auto;
+}
+
 /* ################ Common uses ################ */
+.sticky-bottom-left {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding-bottom: 6%;
+  padding-left: 5%;
+}
 .flexRow {
   display: flex;
   flex-direction: row;
@@ -223,6 +310,7 @@ h6 {
   flex-grow: 8;
   border-left: 2px solid black;
   transition: flex 0.3s linear;
+  overflow: hidden;
 }
 
 .regDiv {
@@ -231,6 +319,7 @@ h6 {
   border-left: 2px solid black;
   transition: flex 0.3s linear;
   padding-top: 30px;
+  overflow: hidden;
 }
 
 .finishedDiv {
@@ -267,6 +356,16 @@ h6 {
   height: 18px;
 }
 
+.animationArrowWrapper2 {
+ position: relative ;
+  top: -200px ;
+  right : 300px ;
+}
+
+.animationArrowWrapper1 {
+  position : absolute;
+}
+/*}*/
 /* ################ Slider ################ */
 
 .slider {
@@ -277,6 +376,7 @@ h6 {
   padding-right: 30px;
   padding-left: 30px;
   gap: 40px;
+  overflow: hidden;
 }
 
 .bottomBar {
@@ -284,18 +384,20 @@ h6 {
   bottom: 0;
   width: 78%;
   padding-right: 80px;
-  padding-bottom: 10px;
+  padding-bottom: 30px;
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 220px;
   justify-content: space-between;
+  overflow: hidden;
 
 }
 
 .logo-container {
   display: flex;
   gap: 12px;
+  padding-left: 8%;
 }
 
 .sliderTop {
@@ -324,7 +426,7 @@ h6 {
   max-width: 600px;
   /* height: 600px; */
   margin-right: 120px;
-  gap: 36px;
+  gap: 50px;
   /* background-color: aquamarine; */
 }
 
@@ -354,9 +456,20 @@ h6 {
 }
 
 .finishingSlide {
-  background-color: #a26af4;
-  /* animation: fillScreen 1.5s ease-out forwards; */
+  background: linear-gradient(to bottom, #a26af4, #a26af4);
+  animation: changeBackground 0.5s forwards; /* Animation to change background color */
+  transition: background-color 0.05s ease;
 }
+
+@keyframes changeBackground {
+  0% {
+    height: 0; /* Start with height 0 */
+  }
+  100% {
+    height: 100%; /* End with full height */
+  }
+}
+
 
 /* @keyframes fillScreen {
   from {

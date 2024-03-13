@@ -11,13 +11,9 @@ const LottieAnimation = (props) => {
     },
   };
 
-  if (props.width && props.height) {
-    defaultOptions.width = props.width;
-    defaultOptions.height = props.height;
-  }
   return (
-    <div>
-      <Lottie options={defaultOptions} />
+    <div className={props.className}>
+      <Lottie options={defaultOptions} height={props.height} width={props.width}/>
     </div>
   );
 };

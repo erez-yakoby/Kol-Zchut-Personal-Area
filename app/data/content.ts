@@ -668,10 +668,9 @@ export const ProcessesContent: Array<process> = [
         ],
         finishingSlide: {
           title: "סיימת את כל השלבים במדריך לפיטורים",
-          // arrowAnimationType: "arrow5",
+          arrowAnimationType: "arrow5",
           description:
             "איך ממשיכים מפה? הנה כמה מדריכים שיכולים לעניין אותך\n המדריך לחיפוש עבודה וניהול קריירה\n המדריך להחזרי מס\n המדריך לפנסיה וחיסכון לטווח ארוך",
-          arrowAnimationType: "",
         },
       },
     ],
