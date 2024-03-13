@@ -194,6 +194,13 @@ h6 {
   left: 0;
 }
 
+.popUpBannerContentContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  height: 100vh; /* Adjust height as needed */
+}
 /* ################ Common uses ################ */
 .sticky-bottom-left {
   position: absolute;

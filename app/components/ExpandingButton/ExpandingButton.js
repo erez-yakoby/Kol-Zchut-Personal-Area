@@ -24,6 +24,7 @@ function ExpandingButton({text, iconType , className, textClassName, iconClassNa
             className={className}
             onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}
+            onClick={onClick}
             disableRipple
             style={{
                 width: 'fit-content',

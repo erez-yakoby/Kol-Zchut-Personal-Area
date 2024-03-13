@@ -10,7 +10,7 @@ import Image from "next/image";
 import MyStepper from "./MyStepper";
 import BottomBar from "./BottomBar";
 import ExpandingButton from "../ExpandingButton/ExpandingButton";
-
+import PopUpBanner from "../PopUpBanner/PopUpBanner";
 import { LoopArrow, Arrow1, LittleArrowText, ArrowID } from "../arrow";
 import Heading from "@/app/components/Heading/Heading";
 import LottieAnimation from "@/app/components/Animation/LottieAnimation";
@@ -298,14 +298,36 @@ const Slider = ({ tabContent, nextTabHandler }) => {
       </div>
     );
   };
-  const renderSliderBody = () => {
-    return (
-      <div className="sliderBody">
 
-        {activeStep === slides.length
-          ? renderFinishingSlide()
-          : renderActiveSlide()}
-      </div>
+  const RenderLeavePopUp = () => {
+    return (
+        <div className="flexRow rtl ">
+          {
+            <PopUpBanner
+                buttonText={"העתק לינק"}
+                subHeadingText={"על מנת לאפשר לך לצאת מהאתר ולחזור בדיוק לנקודה שבה עצרת, שמור את הלינק במקום נגיש ובכל רגע נתון תוכל לחזור ולהמשיך בתהליך."}
+                headingText={"רוצה להיות מסוגל להמשיך מאיפה שהפסקת?"}
+                onClose={() => setShouldDisplayLeavePopUp(false)} />
+          }
+        </div>
+    );
+  }
+  const renderSliderBody = () => {
+
+    return (
+        <div className="sliderBody">
+          {shouldDisplayLeavePopUp ? (
+              RenderLeavePopUp()
+          ) : (
+              <>
+                {activeStep === slides.length ? (
+                    renderFinishingSlide()
+                ) : (
+                    renderActiveSlide()
+                )}
+              </>
+          )}
+        </div>
     );
   };
 
