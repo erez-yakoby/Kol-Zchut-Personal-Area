@@ -1,3 +1,5 @@
+App URL for the demo app - https://kol-zchut-iota.vercel.app/
+
 # Starter Kit
 
 This is a Starter Kit for the Digital Product Jam course. It provides a configuration of the [Next.js](https://nextjs.org/) framework, and a number of examples of common patterns and components.
