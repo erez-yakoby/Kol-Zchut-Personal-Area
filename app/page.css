@@ -196,11 +196,36 @@ h6 {
 
 .popUpBannerContentContainer {
   display: flex;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 80px;
   flex-direction: column;
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
-  height: 100vh; /* Adjust height as needed */
+  justify-content: center;
+  align-items: center;
+  gap: 44px;
+  text-align: center;
 }
+
+.leavePopUpBanner {
+  width: 976px;
+  height: 600px;
+  border: 2px solid black;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.leavePopWrapperDiv {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.popUpBannerCloseIcon {
+  margin-left: auto;
+}
+
 /* ################ Common uses ################ */
 .sticky-bottom-left {
   position: absolute;
@@ -391,7 +416,7 @@ h6 {
   max-width: 600px;
   /* height: 600px; */
   margin-right: 120px;
-  gap: 36px;
+  gap: 50px;
   /* background-color: aquamarine; */
 }
 

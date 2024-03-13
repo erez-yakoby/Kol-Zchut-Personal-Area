@@ -301,15 +301,18 @@ const Slider = ({ tabContent, nextTabHandler }) => {
 
   const RenderLeavePopUp = () => {
     return (
-        <div className="flexRow rtl ">
-          {
-            <PopUpBanner
-                buttonText={"העתק לינק"}
-                subHeadingText={"על מנת לאפשר לך לצאת מהאתר ולחזור בדיוק לנקודה שבה עצרת, שמור את הלינק במקום נגיש ובכל רגע נתון תוכל לחזור ולהמשיך בתהליך."}
-                headingText={"רוצה להיות מסוגל להמשיך מאיפה שהפסקת?"}
-                onClose={() => setShouldDisplayLeavePopUp(false)} />
-          }
-        </div>
+<div className="leavePopWrapperDiv">
+  <PopUpBanner
+      buttonText={"העתק לינק"}
+      subHeadingText={"על מנת לאפשר לך לצאת מהאתר ולחזור בדיוק לנקודה\nשבה עצרת, שמור את הלינק במקום נגיש ובכל רגע נתון\nתוכל לחזור ולהמשיך בתהליך."}
+      headingText={"רוצה להיות מסוגל להמשיך מאיפה שהפסקת?"}
+      onClose={() => setShouldDisplayLeavePopUp(false)}
+      className = {"leavePopUpBanner"}
+  />
+
+</div>
+
+
     );
   }
   const renderSliderBody = () => {
@@ -332,9 +335,10 @@ const Slider = ({ tabContent, nextTabHandler }) => {
   };
 
   const sliderClassName =
-    activeStep === slides.length
+      shouldDisplayLeavePopUp ? "slider flexCol" :
+          (activeStep === slides.length
       ? "slider flexCol finishingSlide"
-      : "slider flexCol";
+      : "slider flexCol");
 
   return (
     <div className={sliderClassName}>

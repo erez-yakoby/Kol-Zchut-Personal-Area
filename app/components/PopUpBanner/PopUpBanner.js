@@ -17,27 +17,17 @@ function PopUpBanner({
     return (
         <Box
             className={className}
-            style={{
-                width: 'fit-content',
-                height: 'fit-content',
-                border: '1px solid black',
-                padding: '10px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'space-between',
-                flexDirection: 'column',
-            }}
         >
-            <div>
+            <div className="popUpBannerCloseIcon">
                 <IconButton
-                    onClick = { onClose}>
+                    onClick = {onClose}>
                     <CloseIcon  />
                 </IconButton>
             </div>
-            <div className="popUpBannerContentContainer">
+
+            <div className="popUpBannerContentContainer flexCol">
                 <Heading text={headingText} level={1}/>
                 <Heading text={subHeadingText} level={4}/>
-
                 <Button
                     className={"questionBtn"}
                     onClick={onClick}
